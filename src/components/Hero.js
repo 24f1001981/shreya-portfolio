@@ -1,5 +1,6 @@
 import React, { useEffect, useRef } from 'react';
 import './Hero.css';
+import Starfield from './Starfield'; 
 import { FaGithub } from "react-icons/fa";
 import { BsFillLightningChargeFill } from "react-icons/bs";
 import { PiHandWavingFill } from "react-icons/pi";
@@ -86,6 +87,7 @@ export default function Hero() {
       <div className="hero-blob hero-blob-2" />
       <div className="hero-blob hero-blob-3" />
       <div className="hero-grid" />
+      <Starfield />  
 
       <div className="container hero-container">
         {/* LEFT */}

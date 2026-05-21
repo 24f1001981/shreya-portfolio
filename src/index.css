@@ -263,3 +263,9 @@ body {
 html {
   scroll-behavior: smooth;
 }
+@keyframes reveal-fallback {
+  to { opacity: 1; transform: translateY(0); }
+}
+.reveal:not(.visible) {
+  animation: reveal-fallback 0s 1s forwards;
+}

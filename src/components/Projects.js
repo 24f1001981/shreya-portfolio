@@ -6,59 +6,63 @@ import { LiaStethoscopeSolid } from "react-icons/lia";
 import { GrAppsRounded } from "react-icons/gr";
 import { PiLockKeyFill } from "react-icons/pi";
 import { FaLinkedin } from "react-icons/fa";
+
+// ── Feature 3: import the drawer ──
+import Projectdrawer from './Projectdrawer';
+
 const projects = [
   {
     title: 'Soil Doctor ', subtitle: 'Smart Portable Soil Health Analyzer',
     meta : '[Model: SDX-01]',
     beta : 'KTU Mini-project',
     description:
-      'An ESP32-based portable soil monitoring system that measures real-time NPK, moisture, temperature, EC, and pH using an RS485 multi-parameter sensor, and provides intelligent crop and fertilizer recommendations through a Decision Tree–based rule engine.<br/><br/><strong> Key Highlights :</strong> <br/> • Real-time measurement of NPK and soil parameters<br/> • ESP32-based embedded processing<br/> •  Decision Tree–based recommendation system<br/> • 16×2 LCD display with simple user interface<br/> • Portable and low-cost design<br/> • Supports sustainable and precision agriculture <br/>',
+      'An ESP32-based portable soil monitoring system that measures real-time NPK, moisture, temperature, EC, and pH using an RS485 multi-parameter sensor, and provides intelligent crop and fertilizer recommendations through a Decision Tree–based rule engine.',
+    highlights: [
+       'Real-time measurement of NPK and soil parameters',
+        'ESP32-based embedded processing',
+        ' Decision Tree–based recommendation system',
+        '16×2 LCD display with simple user interface',
+        'Portable and low-cost design',
+        'Supports sustainable and precision agriculture',
+    ],  
     tags: ['ESP32', 'IoT', 'Python', 'MQTT', 'React'],
     accent: 'cyan',
     emoji: <LiaStethoscopeSolid/>,
     status: 'Featured',
-    links: { demo: '#',linkedin :'#', github: 'https://github.com/24f1001981/Soil-Doctor-KTU-Miniproject-', sparkwhiz: 'https://sites.google.com/view/sparkwhiz/electrosphere/realwire/soil-doctor?authuser=0' },
+    links: { demo: '#', linkedin: '#', github: 'https://github.com/24f1001981/Soil-Doctor-KTU-Miniproject-', sparkwhiz: 'https://sites.google.com/view/sparkwhiz/electrosphere/realwire/soil-doctor?authuser=0' },
   },
   {
     title: 'RecruitEase', subtitle : 'Placement Portal Application',
     beta :'IITM MAD 1 Project ',
-    description: `
-A Flask-based campus placement portal for Admins, Companies, and Students to manage recruitment drives, applications, and approvals.
+    description: 
+'A Flask-based campus placement portal for Admins, Companies, and Students to manage recruitment drives, applications, and approvals.',
 
-<br/><br/><strong>Key Features :</strong><br/>
+    highlights: [
+  'Role-based portal for Admins, Companies, and Students with secure authentication and dedicated dashboards',
 
-• <strong>Role-Based Access System :</strong><br/>
-Separate modules for Admin, Company, and Student with secure authentication and dedicated dashboards.
+  'Placement drive management system enabling companies to create, edit, and manage recruitment drives efficiently',
 
-<br/>
-• <strong>Placement Drive Management :</strong><br/>
-Companies can create, edit, close, and manage placement drives, while admins can approve or reject them.
+  'Application tracking workflow with statuses like Applied, Shortlisted, Selected, Rejected, and Waiting',
 
-<br/>
+  'Advanced admin controls for managing students, companies, drives, blacklist actions, and approvals',
 
-• <strong>Application & Recruitment Tracking :</strong><br/>
-Students can apply to drives and track statuses like Applied, Shortlisted, Selected, Rejected, or Waiting.
+  'Resume, profile photo, and company logo upload support for better profile management',
 
-<br/>
+  'Interactive dashboards with live analytics and recruitment statistics',
+],
 
-• <strong>Advanced Admin Controls :</strong><br/>
-Admins can search, blacklist, restore, or delete students, companies, and drives.
-
-<br/>
-
-• <strong>Profile & Document Management :</strong><br/>
-Students and companies can upload resumes, profile photos, and company logos.
-
-<br/>
-
-• <strong>Interactive Dashboards & Analytics :</strong><br/>
-Live statistics for applications, drives, shortlisted candidates, and selections.
-`,
-tags: ['Render', 'Flask', 'Python', 'Jinja2',  'HTML5' ,'Bootstrap 5' ,'SQLite'],
+    tags: ['Render', 'Flask', 'Python', 'Jinja2', 'HTML5', 'Bootstrap 5', 'SQLite'],
     accent: 'purple',
     emoji: <GrAppsRounded/>,
     status: 'Live',
-    links: { demo: 'https://drive.google.com/file/d/1FzIQ6Jdh5mqZCQnzj7Ge5lkJPONDRvBE/view?usp=sharing',linkedin :'https://www.linkedin.com/posts/shreya-s-n-geck_iitmadras-bsdatascience-flask-activity-7460733168028000257-Ylqm?utm_source=share&utm_medium=member_desktop&rcm=ACoAADMPzHEBleB7JPtfyZbwAwnXWrhhZMnKu2I', github: 'https://github.com/24f1001981/placement-portal-app', sparkwhiz: 'https://sites.google.com/view/sparkwhiz/codecanvas/appstudio/placement-portal-system?authuser=0' },
+    screenshots: [
+    '/images/recruitease/admindashboard.png',
+    '/images/recruitease/analytics.png',
+    '/images/recruitease/company.png',
+    '/images/recruitease/companylist.png',
+    '/images/recruitease/student.png',
+  ],
+    links: { demo: 'https://drive.google.com/file/d/1FzIQ6Jdh5mqZCQnzj7Ge5lkJPONDRvBE/view?usp=sharing', linkedin: 'https://www.linkedin.com/posts/shreya-s-n-geck_iitmadras-bsdatascience-flask-activity-7460733168028000257-Ylqm?utm_source=share&utm_medium=member_desktop&rcm=ACoAADMPzHEBleB7JPtfyZbwAwnXWrhhZMnKu2I', github: 'https://github.com/24f1001981/placement-portal-app', sparkwhiz: 'https://sites.google.com/view/sparkwhiz/codecanvas/appstudio/placement-portal-system?authuser=0' },
   },
   {
     title: 'CircuitGuard',
@@ -66,27 +70,30 @@ tags: ['Render', 'Flask', 'Python', 'Jinja2',  'HTML5' ,'Bootstrap 5' ,'SQLite']
     meta : 'Built with PIC16F877A',
     beta : 'Simulated in Proteus',
     description:
-    `
-CircuitGuard is a security system simulation developed using the PIC16F877A microcontroller. Designed for small-scale secure entry applications, this project features a 4x3 keypad, 16x2 LCD, visual indicators (LEDs). It requires a 4-digit PIN for access and includes a lockout mechanism after three failed attempts to enhance security.
+    'CircuitGuard is a security system simulation developed using the PIC16F877A microcontroller. Designed for small-scale secure entry applications, this project features a 4x3 keypad, 16x2 LCD, visual indicators (LEDs). It requires a 4-digit PIN for access and includes a lockout mechanism after three failed attempts to enhance security.',
 
-<br/><br/><strong>Key Highlights :</strong><br/>
-• User-friendly keypad interface
-<br/>
-• LCD feedback for PIN entry and status messages
-<br/>
-• Red/Green LED indicators for access granted and denial messages
-<br/>
-• Auto lock for 10 seconds after 3 wrong attempts
-<br/>
-• Compact and modular design using Proteus simulation
-<br/>
-• Built completely from scratch using structured C
-`,
-    tags: ['PIC16F877A Microcontrolle', 'Embedded C', 'MPLAB IDE', 'Proteus 8.9 ','PCB & Circuit Design','IoT','Electrical Safety & Monitoring Systems'],
+  highlights: [
+  'User-friendly keypad interface for secure PIN-based access',
+
+  '16×2 LCD display providing real-time PIN entry and system status feedback',
+
+  'Red and green LED indicators for access granted and denied notifications',
+
+  'Automatic 10-second lockout mechanism after three incorrect password attempts',
+
+  'Compact modular circuit designed and simulated using Proteus',
+
+  'Developed completely from scratch using Embedded C and PIC16F877A',
+],
+    tags: ['PIC16F877A Microcontroller', 'Embedded C', 'MPLAB IDE', 'Proteus 8.9', 'PCB & Circuit Design', 'IoT', 'Electrical Safety & Monitoring Systems'],
     accent: 'pink',
-    emoji: < PiLockKeyFill/> ,
+    emoji: <PiLockKeyFill/>,
     status: 'Hardware (Simulation)',
-    links: { demo: 'https://drive.google.com/file/d/1rLBct0EhoUBXl7SiQaQ-xzD3Z8qEhbHd/view?usp=sharing', linkedin :'https://www.linkedin.com/posts/shreya-s-n-geck_embeddedsystems-pic16f877a-engineeringstudent-activity-7341002822865297408-mTLa?utm_source=share&utm_medium=member_desktop&rcm=ACoAADMPzHEBleB7JPtfyZbwAwnXWrhhZMnKu2I',github: 'https://github.com/24f1001981/CircuitGuard', sparkwhiz: 'https://sites.google.com/view/sparkwhiz/electrosphere/simulab/circuitguard?authuser=0' },
+    screenshots: [
+    '/images/circuitguard/circuitdiagram.png',
+    '/images/circuitguard/circuitguard.png',,
+  ],
+    links: { demo: 'https://drive.google.com/file/d/1rLBct0EhoUBXl7SiQaQ-xzD3Z8qEhbHd/view?usp=sharing', linkedin: 'https://www.linkedin.com/posts/shreya-s-n-geck_embeddedsystems-pic16f877a-engineeringstudent-activity-7341002822865297408-mTLa?utm_source=share&utm_medium=member_desktop&rcm=ACoAADMPzHEBleB7JPtfyZbwAwnXWrhhZMnKu2I', github: 'https://github.com/24f1001981/CircuitGuard', sparkwhiz: 'https://sites.google.com/view/sparkwhiz/electrosphere/simulab/circuitguard?authuser=0' },
   },
   {
     title: 'Portfolio Website',
@@ -94,9 +101,9 @@ CircuitGuard is a security system simulation developed using the PIC16F877A micr
       'This very website — designed from scratch with a focus on performance, subtle animations, and a consistent design language. Dark/light mode, fully responsive, deployed on Vercel.',
     tags: ['React', 'CSS', 'Framer Motion', 'Vercel'],
     accent: 'purple',
-    emoji: < BsFillLightningChargeFill/>,
+    emoji: <BsFillLightningChargeFill/>,
     status: 'Open Source',
-    links: { demo: '#',linkedin :'#', github: '#', sparkwhiz: '#' },
+    links: { demo: '#', linkedin: '#', github: '#', sparkwhiz: '#' },
   },
 ];
 
@@ -106,19 +113,23 @@ const accentMap = {
   pink:   { bg: 'rgba(244,114,182,0.06)', border: 'rgba(244,114,182,0.3)', glow: 'rgba(244,114,182,0.15)' },
 };
 
-function ProjectCard({ project, index }) {
+function ProjectCard({ project, index, onClick }) {
   const [hovered, setHovered] = useState(false);
   const a = accentMap[project.accent];
 
   return (
     <div
-      className={`project-card reveal reveal-delay-${(index % 2) + 1}`}
-      style={hovered ? {
-        borderColor: a.border,
-        boxShadow: `0 8px 40px ${a.glow}`,
-      } : {}}
+      className={`project-card reveal-delay-${(index % 2) + 1}`}
+      style={{
+        cursor: 'pointer',
+        ...(hovered ? { borderColor: a.border, boxShadow: `0 8px 40px ${a.glow}` } : {}),
+      }}
       onMouseEnter={() => setHovered(true)}
       onMouseLeave={() => setHovered(false)}
+      onClick={onClick}
+      role="button"
+      tabIndex={0}
+      onKeyDown={e => e.key === 'Enter' && onClick()}
     >
       {/* Top bar */}
       <div className="project-card-top">
@@ -129,71 +140,45 @@ function ProjectCard({ project, index }) {
         <span className={`project-status status-${project.accent}`}>{project.status}</span>
       </div>
 
-      {/* Content */}
-      
-      {project.subtitle && (
-        <p className="project-subtitle">{project.subtitle}</p>
-      )}
+      {project.subtitle && <p className="project-subtitle">{project.subtitle}</p>}
       {project.meta && <p className="project-meta">{project.meta}</p>}
       {project.beta && <p className="project-beta">{project.beta}</p>}
+
       <p className="project-desc" dangerouslySetInnerHTML={{ __html: project.description }} />
 
-      {/* Tags */}
       <div className="project-tags">
         {project.tags.map((t, i) => (
           <span className="tag" key={i}>{t}</span>
         ))}
       </div>
 
-      {/* Links */}
-      <div className="project-links">
-
-        <a
-          href={project.links.github}
-          target="_blank"
-          rel="noopener noreferrer"
-          className="project-link"
-        >
-          <FaGithub className="link-icon" />
-          GitHub
+      {/* Links — stop propagation so clicks on links don't also open drawer */}
+      <div className="project-links" onClick={e => e.stopPropagation()}>
+        <a href={project.links.github} target="_blank" rel="noopener noreferrer" className="project-link">
+          <FaGithub className="link-icon" /> GitHub
         </a>
-
-        <a
-          href={project.links.sparkwhiz}
-          target="_blank"
-          rel="noopener noreferrer"
-          className="project-link"
-        >
-          <BsFillLightningChargeFill className="link-icon spark-icon" />
-          SparkWhiz
+        <a href={project.links.sparkwhiz} target="_blank" rel="noopener noreferrer" className="project-link">
+          <BsFillLightningChargeFill className="link-icon spark-icon" /> SparkWhiz
         </a>
-        <a
-          href={project.links.linkedin}
-          target="_blank"
-          rel="noopener noreferrer"
-          className="project-link"
-        >
-          <FaLinkedin className="link-icon spark-icon" />
-          LinkedIn
+        <a href={project.links.linkedin} target="_blank" rel="noopener noreferrer" className="project-link">
+          <FaLinkedin className="link-icon spark-icon" /> LinkedIn
         </a>
-
         {project.links.demo && project.links.demo !== '#' && (
-          <a
-            href={project.links.demo}
-            target="_blank"
-            rel="noopener noreferrer"
-            className={`project-link-primary link-${project.accent}`}
-          >
+          <a href={project.links.demo} target="_blank" rel="noopener noreferrer" className={`project-link-primary link-${project.accent}`}>
             Live Demo →
           </a>
         )}
-
       </div>
+
+      {/* Subtle hint to open drawer */}
+      <p className="project-open-hint">Click card for full details →</p>
     </div>
   );
 }
 
 export default function Projects() {
+  const [activeProject, setActiveProject] = useState(null);
+
   return (
     <section id="projects" className="section projects-section">
       <div className="container">
@@ -209,7 +194,12 @@ export default function Projects() {
 
         <div className="projects-grid">
           {projects.map((p, i) => (
-            <ProjectCard project={p} index={i} key={i} />
+            <ProjectCard
+              project={p}
+              index={i}
+              key={i}
+              onClick={() => setActiveProject(p)}
+            />
           ))}
         </div>
 
@@ -219,6 +209,14 @@ export default function Projects() {
           </a>
         </div>
       </div>
+
+      {/* Feature 3: Project drawer */}
+      {activeProject && (
+        <Projectdrawer
+          project={activeProject}
+          onClose={() => setActiveProject(null)}
+        />
+      )}
     </section>
   );
 }
