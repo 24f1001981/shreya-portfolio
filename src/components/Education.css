@@ -1,0 +1,221 @@
+/* =============================================
+   EDUCATION — VERTICAL TIMELINE LAYOUT
+   ============================================= */
+
+.edu-section {
+  position: relative;
+}
+
+.edu-header {
+  margin-bottom: 64px;
+}
+
+/* ── Timeline wrapper ── */
+.edu-timeline {
+  display: flex;
+  flex-direction: column;
+  gap: 0;
+  max-width: 860px;
+}
+
+/* ── Each row: rail + card ── */
+.edu-item {
+  display: grid;
+  grid-template-columns: 48px 1fr;
+  gap: 0 24px;
+  position: relative;
+}
+
+/* ── Rail column ── */
+.edu-rail {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding-top: 28px;
+}
+
+.edu-dot {
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  border: 2px solid var(--border);
+  background: var(--bg-card);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  z-index: 1;
+  transition: border-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+.edu-dot-inner {
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  transition: transform 0.3s ease;
+}
+
+.edu-item:hover .edu-dot-inner {
+  transform: scale(1.3);
+}
+
+.edu-rail-line {
+  flex: 1;
+  width: 1px;
+  background: linear-gradient(to bottom, var(--border-hover), var(--border));
+  margin-top: 6px;
+  margin-bottom: 6px;
+  min-height: 24px;
+}
+
+/* ── Content card ── */
+.edu-content {
+  position: relative;
+  background: var(--bg-card);
+  border: 1px solid var(--border);
+  border-radius: 18px;
+  margin-bottom: 16px;
+  overflow: hidden;
+  transition: border-color 0.3s ease, box-shadow 0.3s ease, transform 0.3s cubic-bezier(0.23, 1, 0.32, 1);
+  cursor: default;
+}
+
+.edu-content:hover {
+  transform: translateX(6px);
+}
+
+/* Left accent stripe */
+.edu-stripe {
+  position: absolute;
+  left: 0;
+  top: 0;
+  bottom: 0;
+  width: 3px;
+  border-radius: 18px 0 0 18px;
+  transition: opacity 0.3s ease;
+  opacity: 0.6;
+}
+
+/* Inner padding */
+.edu-content-inner {
+  padding: 24px 28px 24px 32px;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+/* Top row: icon + period */
+.edu-top {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 4px;
+}
+
+.edu-icon-wrap {
+  width: 40px;
+  height: 40px;
+  border-radius: 11px;
+  background: var(--bg-card-hover);
+  border: 1px solid rgba(139, 92, 246, 0.15);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  transition: border-color 0.3s ease, background 0.3s ease;
+}
+
+.edu-period {
+  font-family: var(--font-display);
+  font-size: 0.7rem;
+  font-weight: 700;
+  letter-spacing: 1.2px;
+  text-transform: uppercase;
+  color:  #caa2ef;
+  background:  rgba(139, 92, 246, 0.08);  
+  border: 1px solid rgba(139, 92, 246, 0.2);
+  border-radius: 999px;
+  padding: 4px 12px;
+  transition: border-color 0.3s ease;
+}
+
+.edu-item:hover .edu-period {
+  border-color: var(--border-hover);
+  color: var(--text-secondary);
+}
+
+/* Text */
+.edu-role {
+  font-family: var(--font-display);
+  font-size: 1.1rem;
+  font-weight: 800;
+  color: var(--text-primary);
+  letter-spacing: -0.3px;
+  line-height: 1.25;
+  margin: 0;
+}
+
+.edu-org {
+  font-family: var(--font-display);
+  font-size: 0.78rem;
+  font-weight: 600;
+  color: var(--text-muted);
+  letter-spacing: 0.2px;
+  transition: color 0.3s ease;
+  margin: 0;
+}
+
+.edu-desc {
+  font-size: 0.88rem;
+  color: var(--text-secondary);
+  line-height: 1.78;
+  margin: 0;
+}
+
+.edu-desc strong {
+  color: var(--text-secondary);
+  font-weight: 600;
+}
+
+/* ── Responsive ── */
+@media (max-width: 768px) {
+  .edu-item {
+    grid-template-columns: 36px 1fr;
+    gap: 0 16px;
+  }
+
+  .edu-dot {
+    width: 28px;
+    height: 28px;
+  }
+
+  .edu-dot-inner {
+    width: 8px;
+    height: 8px;
+  }
+
+  .edu-content:hover {
+    transform: translateX(3px);
+  }
+
+  .edu-content-inner {
+    padding: 20px 20px 20px 24px;
+  }
+}
+
+@media (max-width: 480px) {
+  .edu-item {
+    grid-template-columns: 28px 1fr;
+    gap: 0 12px;
+  }
+
+  .edu-top {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 8px;
+  }
+
+  .edu-role {
+    font-size: 1rem;
+  }
+}

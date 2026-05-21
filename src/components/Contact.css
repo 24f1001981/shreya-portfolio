@@ -1,0 +1,174 @@
+.contact-section { position: relative; }
+
+.contact-inner {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 80px;
+  align-items: center;
+}
+
+.contact-desc {
+  font-size: 1rem;
+  color: var(--text-secondary);
+  line-height: 1.85;
+  margin-bottom: 32px;
+}
+
+.copy-email-btn {
+  background: var(--bg-card);
+  border: 1px solid var(--border);
+  border-radius: 10px;
+  padding: 12px 20px;
+  font-family: var(--font-display);
+  font-size: 0.85rem;
+  font-weight: 600;
+  color: var(--text-secondary);
+  cursor: pointer;
+  transition: all 0.25s ease;
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  text-decoration: none;
+}
+
+.copy-email-btn:hover {
+  border-color: var(--border-hover);
+  color: var(--purple-light);
+  background: rgba(139,92,246,0.08);
+}
+
+/* Contact cards */
+.contact-links {
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+}
+
+.contact-card {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 20px 24px;
+  border-radius: 16px;
+  background: #1a1f2e;
+  border: 1px solid rgba(255, 255, 255, 0.06);
+  text-decoration: none;
+  transition: all 0.3s cubic-bezier(0.23, 1, 0.32, 1);
+}
+
+.contact-card:hover {
+  transform: translateX(6px);
+}
+
+.cc-purple:hover { border-color: rgba(139,92,246,0.4); box-shadow: 0 4px 20px rgba(139,92,246,0.15); }
+.cc-cyan:hover   { border-color: rgba(34,211,238,0.35); box-shadow: 0 4px 20px rgba(34,211,238,0.12); }
+.cc-pink:hover   { border-color: rgba(244,114,182,0.35); box-shadow: 0 4px 20px rgba(244,114,182,0.12); }
+
+.contact-card-left {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+}
+
+.contact-icon {
+  width: 44px; height: 44px;
+  border-radius: 10px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.2rem;
+  flex-shrink: 0;
+}
+
+.ci-purple { background: rgba(139,92,246,0.1); border: 1px solid rgba(139,92,246,0.2); }
+.ci-cyan   { background: #24292e; border: 1px solid rgba(34,211,238,0.18); }
+.ci-pink   { background: rgba(244,114,182,0.08); border: 1px solid rgba(244,114,182,0.18); }
+
+.contact-info {
+  display: flex;
+  flex-direction: column;
+  gap: 3px;
+}
+
+.contact-label {
+  font-family: var(--font-display);
+  font-size: 0.7rem;
+  font-weight: 700;
+  letter-spacing: 1.5px;
+  text-transform: uppercase;
+  color: rgba(255, 255, 255, 0.7);
+}
+
+.contact-value {
+  font-size: 0.9rem;
+  font-weight: 500;
+  color: #e2e8f0;
+}
+
+.contact-arrow {
+  font-size: 1rem;
+  color: var(--text-muted);
+  transition: all 0.25s ease;
+}
+
+.contact-card:hover .contact-arrow {
+  transform: translateX(4px);
+  color: var(--text-secondary);
+}
+
+.github-icon {
+  color: #ffffff;
+}
+
+/* light mode overrides */
+[data-theme="light"] .contact-card {
+  background: #eef0f7;
+  border: 1px solid rgba(0, 0, 0, 0.08);
+}
+
+[data-theme="light"] .contact-label { color: rgba(0, 0, 0, 0.5); }
+[data-theme="light"] .contact-value { color: #1a1a2e; }
+[data-theme="light"] .contact-arrow { color: rgba(0, 0, 0, 0.4); }
+[data-theme="light"] .github-icon   { color: #24292e; }
+[data-theme="light"] .copy-email-btn {
+  background: #eef0f7;
+  border: 1px solid rgba(139, 92, 246, 0.3);
+  color: var(--text-secondary);
+}
+
+[data-theme="light"] .copy-email-btn:hover {
+  background: rgba(139, 92, 246, 0.08);
+  border-color: var(--purple);
+}
+[data-theme="light"] .github-icon {
+  color: #24292e;
+}
+
+[data-theme="light"] .ci-cyan {
+  background: #e8eaf0;
+  border: 1px solid rgba(0, 0, 0, 0.1);
+}
+.contact-text .section-label {
+  font-size: 15px;
+  letter-spacing: 1.5px;
+  gap: 10px;
+}
+.contact-text .section-label {
+  font-family: 'Georgia', serif;
+  font-style: italic;
+  font-size: 15px;
+  letter-spacing: 1.5px;
+  gap: 10px;
+  text-transform: none;    /* remove uppercase so it looks elegant */
+}
+.contact-text .section-label svg {
+  width: 18px;
+  height: 18px;
+}
+@media (max-width: 900px) {
+  .contact-inner { grid-template-columns: 1fr; gap: 48px; }
+}
+@keyframes blink {
+  0%, 100% { border-color: var(--cyan); }
+  50% { border-color: transparent; }
+}
