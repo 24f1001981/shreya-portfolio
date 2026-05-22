@@ -85,7 +85,7 @@ const KEYWORD_MAP = [
   { keys: ['ncc', 'naval', 'cadet', 'certificate', 'military'], topic: 'ncc' },
   { keys: ['portfolio', 'website', 'this site', 'this website', 'built this', 'site'], topic: 'portfolio' },
   { keys: ['who', 'about', 'tell me', 'describe', 'person', 'shreya', 'herself'], topic: 'about' },
-  { keys: ['hi', 'hello', 'hey', 'howdy', 'sup', 'yo', 'hii', 'heyy', 'greet'], topic: 'hello' },
+  { keys: ['hi', 'hello', 'hey', 'howdy', 'sup', 'yo', 'hii', 'heyy', 'greet','bro'], topic: 'hello' },
 ];
 
 /* ── pick random from array ── */

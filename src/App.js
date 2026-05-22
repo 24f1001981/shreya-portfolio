@@ -18,7 +18,7 @@ import Starfield    from './components/Starfield';      // 2 — used inside Her
 import Aichatwidget from './components/Aichatwidget';   // 4
 import Easteregg    from './components/Easteregg'; 
 import Ghostsignal from './components/Ghostsignal';     // 5
-// ProjectDrawer (3) is imported and used inside Projects.js
+import Ambientbg from './components/Ambientbg';
 
 export default function App() {
   const [theme, setTheme] = useState('dark');
@@ -54,7 +54,9 @@ export default function App() {
   const toggleTheme = () => setTheme(t => t === 'dark' ? 'light' : 'dark');
 
   return (
+  
     <div className="noise">
+      <Ambientbg />
       {/* Feature 1: Custom cursor — renders globally */}
       <Customcursor />
 
@@ -65,7 +67,7 @@ export default function App() {
 
       <Navbar theme={theme} toggleTheme={toggleTheme} />
 
-      <main>
+      <main id="main-content">
         {/* Feature 2: StarField is added inside Hero.js — see Hero.js instructions */}
         <Hero />
         <SectionDivider />
@@ -90,5 +92,6 @@ export default function App() {
       {/* Feature 4: AI chat widget — fixed floating UI */}
       <Aichatwidget />
     </div>
+
   );
 }

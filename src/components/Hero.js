@@ -1,4 +1,4 @@
-import React, { useEffect, useRef } from 'react';
+import React, { useEffect, useRef, useState } from 'react';
 import './Hero.css';
 import Starfield from './Starfield'; 
 import { FaGithub } from "react-icons/fa";
@@ -23,7 +23,7 @@ export default function Hero() {
   const orbitRef  = useRef(null);
   const animRef   = useRef([]);
   const frameRef  = useRef(null);
-
+  const [copied, setCopied] = useState(false);
   useEffect(() => {
     // mouse parallax on blobs
     const handleMouseMove = (e) => {
@@ -70,7 +70,14 @@ export default function Hero() {
     e.preventDefault();
     document.querySelector('#projects')?.scrollIntoView({ behavior: 'smooth' });
   };
+  const copyEmail = () => {
+  navigator.clipboard.writeText('snshreya2004@gmail.com');
+  setCopied(true);
 
+  setTimeout(() => {
+    setCopied(false);
+  }, 2000);
+};
   return (
     <section id="hero" className="hero" ref={heroRef}>
       <svg width="0" height="0" style={{ position: 'absolute' }}>
@@ -148,9 +155,13 @@ export default function Hero() {
               <FaLinkedin className="social-icon" /> LinkedIn
             </a>
             <span className="social-sep">·</span>
-            <a href="mailto:snshreya2004@gmail.com" className="social-chip">
+            <button
+              className="social-chip social-btn"
+              onClick={copyEmail}
+            >
               <BiLogoGmail className="social-icon" /> Email
-            </a>
+            </button>
+            
           </div>
         </div>
 
@@ -190,6 +201,11 @@ export default function Hero() {
         <div className="scroll-line" />
         <span>scroll</span>
       </div>
+      {copied && (
+        <div className="copy-toast">
+          ✓ Email copied
+        </div>
+      )}  
     </section>
   );
 }
