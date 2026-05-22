@@ -1,41 +1,42 @@
 import { useEffect, useRef } from 'react';
 import './Ambientbg.css';
 
-const STAR_COUNT = 120;
+const STAR_COUNT = 80;
 
 function rand(min, max) {
   return min + Math.random() * (max - min);
 }
 
-// Pastel palette for dark mode
 const DARK_COLORS = [
-  '0,255,240',    // cyan
-  '0,220,255',    // sky-cyan
-  '180,100,255',  // violet-purple
-  '210,80,255',   // bright purple
-  '255,80,200',   // hot pink
-  '255,120,220',  // soft pink
-  '255,200,240',  // blush white
+  '0,255,240',
+  '0,220,255',
+  '180,100,255',
+  '210,80,255',
+  '255,80,200',
+  '255,120,220',
+  '255,200,240',
 ];
 
-// Deep saturated palette for light mode — readable against white
 const LIGHT_COLORS = [
-  '0,180,200',    // deep cyan
-  '0,150,220',    // deep sky
-  '120,0,200',    // deep violet
-  '160,0,220',    // deep purple
-  '200,0,140',    // deep magenta
-  '180,0,160',    // deep pink
-  '100,0,180',    // indigo
+  '0,100,160',
+  '0,80,180',
+  '80,0,160',
+  '120,0,180',
+  '160,0,120',
+  '140,0,150',
+  '60,0,140',
 ];
 
-// Shooting star direction vectors
 const DIRECTIONS = [
-  { dx: -1,  dy:  0.45 },  // ↙
-  { dx:  1,  dy:  0.45 },  // ↘
-  { dx: -1,  dy: -0.35 },  // ↖
-  { dx:  1,  dy: -0.35 },  // ↗
+  { dx: -1, dy:  0.45 },
+  { dx:  1, dy:  0.45 },
+  { dx: -1, dy: -0.35 },
+  { dx:  1, dy: -0.35 },
 ];
+
+function getTheme() {
+  return document.documentElement.getAttribute('data-theme') === 'light' ? 'light' : 'dark';
+}
 
 export default function Ambientbg() {
   const canvasRef = useRef(null);
@@ -45,154 +46,141 @@ export default function Ambientbg() {
     if (!canvas) return;
 
     const ctx = canvas.getContext('2d');
+    let W, H, frame;
 
-    let W, H;
-    let frame;
-    let scrollY = window.scrollY;
-
-    // Dark / light mode detection
-    const darkMQ = window.matchMedia('(prefers-color-scheme: dark)');
-    let isDark = darkMQ.matches;
-
-    const getColors  = () => isDark ? DARK_COLORS  : LIGHT_COLORS;
-    const getOpacity = () => isDark
-      ? { min: 0.1, max: 0.28 }
-      : { min: 1.45, max: 1.85 };
-
-    // Will be defined after stars array — see onSchemeChange below
-
-    const onScroll = () => {
-      scrollY = window.scrollY;
-    };
+    const isDark = () => getTheme() === 'dark';
+    const getColors  = () => isDark() ? DARK_COLORS : LIGHT_COLORS;
+    const getOpacity = () => isDark()
+      ? { min: 0.10, max: 0.25 }
+      : { min: 0.08, max: 0.18 };
 
     const resize = () => {
       W = canvas.width  = window.innerWidth;
       H = canvas.height = window.innerHeight;
     };
-
     resize();
     window.addEventListener('resize', resize);
-    window.addEventListener('scroll', onScroll);
 
-    /* ── Ambient stars ── */
+    /* ── Stars with wandering motion ── */
     const stars = Array.from({ length: STAR_COUNT }, () => {
       const colors = getColors();
       const op     = getOpacity();
       return {
         x:            Math.random() * W,
         y:            Math.random() * H,
-        size:         rand(0.3, 2.2),
+        size:         rand(0.2, 2.8),
         opacity:      rand(op.min, op.max),
-        speed:        rand(0.02, 0.08),
-        twinkle:      rand(0, Math.PI * 2),
-        twinkleSpeed: rand(0.01, 0.03),
         color:        colors[Math.floor(Math.random() * colors.length)],
+
+        // gentle upward drift (very slow)
+        vy:           rand(0.008, 0.04),
+
+        // wandering: each star has its own phase + radius so they
+        // all drift differently — some wide, some tight circles
+        wanderAngle:  rand(0, Math.PI * 2),
+        wanderSpeed:  rand(0.004, 0.012),   // how fast it orbits
+        wanderRadius: rand(1.5, 4.4),        // pixels — tiny!
+
+        // twinkle
+        twinkle:      rand(0, Math.PI * 2),
+        twinkleSpeed: rand(0.004, 0.015),
       };
     });
 
-    // Re-skin stars when OS theme changes
-    const onSchemeChange = (e) => {
-      isDark = e.matches;
+    /* Watch data-theme changes */
+    const observer = new MutationObserver(() => {
       const colors = getColors();
       const op     = getOpacity();
       stars.forEach((s) => {
         s.color   = colors[Math.floor(Math.random() * colors.length)];
         s.opacity = rand(op.min, op.max);
       });
-    };
-
-    darkMQ.addEventListener('change', onSchemeChange);
+    });
+    observer.observe(document.documentElement, {
+      attributes: true,
+      attributeFilter: ['data-theme'],
+    });
 
     /* ── Shooting stars ── */
     let shootingStars = [];
+    let shootTimeout;
 
     const spawnShootingStar = () => {
-      // 4. Pick a random direction
       const dir = DIRECTIONS[Math.floor(Math.random() * DIRECTIONS.length)];
-
       shootingStars.push({
-        x:       rand(W * 0.2, W * 0.9),
-        y:       rand(0, H * 0.5),
-        len:     rand(80, 180),
-        speed:   rand(8, 14),
-        life:    0,
-        maxLife: 80,
-        dx:      dir.dx,
-        dy:      dir.dy,
-        color:   getColors()[Math.floor(Math.random() * getColors().length)],
+        x:        rand(W * 0.1, W * 0.9),
+        y:        rand(0, H * 0.6),
+        len:      rand(60, 130),
+        speed:    rand(5, 10),
+        life:     0,
+        maxLife:  70,
+        dx:       dir.dx,
+        dy:       dir.dy,
+        color:    getColors()[Math.floor(Math.random() * getColors().length)],
+        maxAlpha: isDark() ? 0.55 : 0.75,
       });
-
-      setTimeout(spawnShootingStar, rand(4000, 9000));
+      shootTimeout = setTimeout(spawnShootingStar, rand(5000, 12000));
     };
 
-    spawnShootingStar();
+    shootTimeout = setTimeout(spawnShootingStar, rand(2000, 5000));
 
+    /* ── Draw ── */
     const draw = () => {
       ctx.clearRect(0, 0, W, H);
 
-      /* ── Stars ── */
       stars.forEach((s) => {
-        s.y -= s.speed;
-        if (s.y < 0) {
-          s.y = H;
-          s.x = Math.random() * W;
-        }
+        // slow upward drift
+        s.y -= s.vy;
+        if (s.y < -4) { s.y = H + 4; s.x = Math.random() * W; }
 
-        // 2. Twinkle pulse
+        // wander: tiny sinusoidal orbit around current position
+        s.wanderAngle += s.wanderSpeed;
+        const wx = Math.cos(s.wanderAngle) * s.wanderRadius;
+        const wy = Math.sin(s.wanderAngle * 0.7) * s.wanderRadius;
+
+        const px = s.x + wx;
+        const py = s.y + wy;
+
+        // twinkle
         s.twinkle += s.twinkleSpeed;
-        const pulse   = 0.7 + 0.3 * Math.sin(s.twinkle);
-        const opacity = s.opacity * pulse;
+        const pulse   = 0.6 + 0.4 * Math.sin(s.twinkle);
+        const opacity = Math.min(1, s.opacity * pulse);
 
-        // 1. Scroll drift — stars shift very subtly with scroll
-        const py = (s.y + scrollY * 0.02) % H;
+        // subtle glow — radial gradient a bit larger than the dot
+        const glowRadius = s.size * 6;
+        const grd = ctx.createRadialGradient(px, py, 0, px, py, glowRadius);
+        grd.addColorStop(0,   `rgba(${s.color},${opacity})`);
+        grd.addColorStop(0.5, `rgba(${s.color},${opacity * 0.15})`);
+        grd.addColorStop(1,   `rgba(${s.color},0)`);
 
+        // glow halo
         ctx.beginPath();
-        ctx.arc(s.x, py, s.size, 0, Math.PI * 2);
-
-        // Larger stars get a soft radial glow in their color
-        if (s.size > 1.2) {
-          const grd = ctx.createRadialGradient(s.x, py, 0, s.x, py, s.size * 3);
-          grd.addColorStop(0,   `rgba(${s.color},${opacity})`);
-          grd.addColorStop(0.5, `rgba(${s.color},${opacity * 0.4})`);
-          grd.addColorStop(1,   `rgba(${s.color},0)`);
-          ctx.fillStyle = grd;
-        } else {
-          ctx.fillStyle = `rgba(${s.color},${opacity})`;
-        }
-
+        ctx.arc(px, py, glowRadius, 0, Math.PI * 2);
+        ctx.fillStyle = grd;
         ctx.fill();
       });
 
-      /* ── Shooting stars ── */
+      /* Shooting stars */
       shootingStars = shootingStars.filter((s) => {
         s.x += s.speed * s.dx;
         s.y += s.speed * Math.abs(s.dy) * Math.sign(s.dy);
         s.life++;
 
-        const alpha = 1 - s.life / s.maxLife;
-        const tailX  = s.x - s.len * s.dx;
-        const tailY  = s.y - s.len * Math.abs(s.dy) * Math.sign(s.dy);
+        const alpha = (1 - s.life / s.maxLife) * s.maxAlpha;
+        const tailX = s.x - s.len * s.dx;
+        const tailY = s.y - s.len * Math.abs(s.dy) * Math.sign(s.dy);
 
         const grad = ctx.createLinearGradient(s.x, s.y, tailX, tailY);
         grad.addColorStop(0,   `rgba(${s.color},0)`);
         grad.addColorStop(0.4, `rgba(${s.color},${alpha * 0.7})`);
-        grad.addColorStop(1,   `rgba(255,255,255,${alpha})`);
-
-        const glowColor = `rgba(${s.color},${alpha})`;
-
-        // 5. Blur glow — makes them look expensive
-        ctx.shadowBlur  = 10;
-        ctx.shadowColor = glowColor;
+        grad.addColorStop(1,   `rgba(${s.color},${alpha})`);
 
         ctx.beginPath();
         ctx.strokeStyle = grad;
-        ctx.lineWidth   = 1.5;
+        ctx.lineWidth   = isDark() ? 1 : 1.2;
         ctx.moveTo(s.x, s.y);
         ctx.lineTo(tailX, tailY);
         ctx.stroke();
-
-        // Reset shadow so stars aren't blurred
-        ctx.shadowBlur = 0;
 
         return s.life < s.maxLife;
       });
@@ -204,9 +192,9 @@ export default function Ambientbg() {
 
     return () => {
       cancelAnimationFrame(frame);
+      clearTimeout(shootTimeout);
       window.removeEventListener('resize', resize);
-      window.removeEventListener('scroll', onScroll);
-      darkMQ.removeEventListener('change', onSchemeChange);
+      observer.disconnect();
     };
   }, []);
 

@@ -1,16 +1,13 @@
 .ambient-bg {
   position: fixed;
   inset: 0;
-
   width: 100%;
   height: 100%;
-
   z-index: -5;
-
   pointer-events: none;
-
-  opacity: 0.9;
+  opacity: 1;
 }
-.footer::before {
-  opacity: 1.3;
+
+@media (prefers-reduced-motion: reduce) {
+  .ambient-bg { display: none; }
 }

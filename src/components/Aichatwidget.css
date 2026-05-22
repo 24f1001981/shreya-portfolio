@@ -129,7 +129,7 @@
 
 .ai-header-sub {
   font-size: 0.72rem;
-  color: var(--text-muted);
+  color: var(--text-secondary);
   display: flex;
   align-items: center;
   gap: 4px;
@@ -341,4 +341,54 @@
 @media (max-width: 480px) {
   .ai-fab { bottom: 20px; right: 20px; }
   .ai-panel { bottom: 80px; right: 12px; left: 12px; width: auto; }
+}
+/* ── Boot sequence ── */
+.ai-boot {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  padding: 8px 4px;
+}
+
+.ai-boot-line {
+  font-family: 'Courier New', monospace;
+  font-size: 0.78rem;
+  color: var(--cyan);
+  opacity: 0;
+  animation: ai-boot-appear 0.4s ease forwards;
+  letter-spacing: 0.5px;
+}
+
+.ai-boot-delay-1 { animation-delay: 0.4s; }
+.ai-boot-delay-2 { animation-delay: 0.85s; }
+
+@keyframes ai-boot-appear {
+  from { opacity: 0; transform: translateX(-6px); }
+  to   { opacity: 0.85; transform: translateX(0); }
+}
+
+/* ── Thinking label ── */
+.ai-thinking {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  padding: 10px 14px;
+  background: var(--bg-card-hover);
+  border: 1px solid var(--border);
+  border-radius: 14px;
+  border-top-left-radius: 4px;
+}
+
+.ai-thinking-label {
+  font-family: 'Courier New', monospace;
+  font-size: 0.72rem;
+  color: var(--cyan);
+  letter-spacing: 0.5px;
+  opacity: 0.8;
+  animation: ai-thinking-pulse 1.4s ease-in-out infinite;
+}
+
+@keyframes ai-thinking-pulse {
+  0%, 100% { opacity: 0.5; }
+  50%       { opacity: 1; }
 }
