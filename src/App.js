@@ -19,6 +19,7 @@ import Aichatwidget from './components/Aichatwidget';   // 4
 import Easteregg    from './components/Easteregg'; 
 import Ghostsignal from './components/Ghostsignal';     // 5
 import Ambientbg from './components/Ambientbg';
+import './mobile-responsive.css';
 
 export default function App() {
   const [theme, setTheme] = useState('dark');

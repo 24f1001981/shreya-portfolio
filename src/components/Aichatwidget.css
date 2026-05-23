@@ -392,3 +392,51 @@
   0%, 100% { opacity: 0.5; }
   50%       { opacity: 1; }
 }
+/* ── Inline recommendation chips ── */
+.ai-inline-suggestions {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  margin-top: 14px;
+}
+
+.ai-inline-suggestion {
+  width: 100%;
+  text-align: left;
+
+  padding: 10px 14px;
+  border-radius: 12px;
+
+  background: rgba(139,92,246,0.06);
+  border: 1px solid rgba(139,92,246,0.16);
+
+  color: var(--text-secondary);
+
+  font-family: var(--font-display);
+  font-size: 0.78rem;
+  font-weight: 500;
+
+  cursor: pointer;
+
+  transition:
+    transform 0.2s ease,
+    background 0.2s ease,
+    border-color 0.2s ease,
+    color 0.2s ease;
+}
+
+.ai-inline-suggestion:hover {
+  transform: translateX(4px);
+
+  background: rgba(139,92,246,0.12);
+  border-color: rgba(139,92,246,0.35);
+
+  color: var(--purple-light);
+}
+.ai-recommend-label {
+  font-size: 0.72rem;
+  color: var(--text-muted);
+  margin-top: 10px;
+  margin-bottom: 4px;
+  letter-spacing: 0.4px;
+}

@@ -1,0 +1,317 @@
+/* =============================================
+   GLOBAL MOBILE RESPONSIVE OVERRIDES
+   Drop this into your project and import it
+   AFTER all other CSS files in App.js/index.js
+   ============================================= */
+
+/* ── 1. VIEWPORT FIX (most important line) ── */
+/* Add this to your public/index.html <head>:
+   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
+   This is the "Flask auto-adjust" equivalent for React! */
+
+/* ── 2. GLOBAL BOX SIZING & OVERFLOW GUARD ── */
+*, *::before, *::after {
+  box-sizing: border-box;
+}
+
+html, body {
+  overflow-x: hidden;
+  width: 100%;
+  max-width: 100vw;
+}
+
+/* ── 3. CONTAINER — fluid on all screens ── */
+.container {
+  width: 100%;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 clamp(16px, 5vw, 64px);
+}
+
+/* ── 4. SECTION SPACING ── */
+.section {
+  padding: clamp(60px, 10vw, 120px) 0;
+}
+
+/* =============================================
+   HERO — fluid orbital system
+   ============================================= */
+
+@media (max-width: 900px) {
+  .hero { padding: 100px 0 60px; }
+
+  .hero-container {
+    grid-template-columns: 1fr;
+    gap: 40px;
+    text-align: center;
+  }
+
+  .hero-intro    { max-width: 100%; margin-left: auto; margin-right: auto; }
+  .hero-buttons  { justify-content: center; }
+  .hero-socials  { justify-content: center; flex-wrap: wrap; }
+  .hero-greeting { justify-content: center; }
+  .hero-cinematic{ justify-content: center; }
+  .hero-visual   { order: -1; height: 320px; } /* show orbit ABOVE text on mobile */
+}
+
+@media (max-width: 600px) {
+  .hero { padding: 90px 0 50px; }
+
+  .hero-name { font-size: clamp(2.4rem, 10vw, 3.5rem); letter-spacing: -1px; }
+  .hero-tagline { font-size: 0.9rem; }
+  .hero-intro { font-size: 0.95rem; }
+
+  .hero-buttons { flex-direction: column; align-items: stretch; gap: 10px; }
+  .btn { justify-content: center; width: 100%; }
+
+  .hero-socials { gap: 6px; font-size: 0.82rem; }
+  .social-chip  { padding: 6px 10px; font-size: 0.8rem; }
+
+  /* Orbital system — shrink to fit */
+  .hero-visual   { height: 280px; }
+  .orbit-system  { width: 260px; height: 260px; }
+  .orbital-pill  { font-size: 0.58rem; padding: 4px 9px; }
+  .hero-avatar-core { width: 120px; height: 120px; }
+  .hero-avatar-wrapper { width: 120px; height: 120px; }
+  .avatar-initials { font-size: 2.4rem; }
+  .ring-1 { width: 130px; height: 130px; }
+  .ring-2 { width: 155px; height: 155px; }
+
+  /* Orbit traces scale */
+  .orbit-trace-1 { width: 220px; height: 84px; }
+  .orbit-trace-2 { width: 256px; height: 96px; }
+  .orbit-trace-3 { width: 238px; height: 90px; }
+
+  .hero::before, .hero::after { width: 24px; height: 24px; }
+}
+
+/* =============================================
+   NAVBAR
+   ============================================= */
+
+@media (max-width: 768px) {
+  .navbar { padding: 14px 0; }
+
+  .navbar-links {
+    position: fixed;
+    top: 60px;
+    left: 0; right: 0;
+    flex-direction: column;
+    background: var(--bg-card);
+    border-bottom: 1px solid var(--border);
+    padding: 16px;
+    gap: 4px;
+    transform: translateY(-120%);
+    opacity: 0;
+    pointer-events: none;
+    transition: all 0.35s cubic-bezier(0.23, 1, 0.32, 1);
+    z-index: 999;
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
+  }
+
+  .navbar-links.open {
+    transform: translateY(0);
+    opacity: 1;
+    pointer-events: all;
+  }
+
+  .nav-link { width: 100%; text-align: center; padding: 12px; }
+  .theme-toggle { margin-left: 0; margin-top: 8px; align-self: center; }
+  .hamburger { display: flex; }
+}
+
+/* =============================================
+   ABOUT
+   ============================================= */
+
+@media (max-width: 900px) {
+  .about-grid { grid-template-columns: 1fr; gap: 40px; }
+}
+
+@media (max-width: 600px) {
+  .mini-stats { grid-template-columns: 1fr 1fr; }
+  .edu-flip   { height: auto; min-height: 90px; }
+
+  .tagline-banner { padding: 14px 18px; }
+  .tagline-text, .tagline-glow { font-size: 0.95rem; }
+
+  .vision-quote { padding: 16px 18px 14px; }
+  .vision-body  { font-size: 0.88rem; padding-left: 20px; }
+}
+
+@media (max-width: 360px) {
+  .mini-stats { grid-template-columns: 1fr; }
+}
+
+/* =============================================
+   EDUCATION
+   ============================================= */
+
+@media (max-width: 768px) {
+  .edu-item {
+    grid-template-columns: 32px 1fr;
+    gap: 0 14px;
+  }
+  .edu-dot        { width: 26px; height: 26px; }
+  .edu-dot-inner  { width: 8px; height: 8px; }
+  .edu-content:hover { transform: translateX(2px); }
+  .edu-content-inner { padding: 18px 16px 18px 20px; }
+  .edu-role { font-size: 1rem; }
+}
+
+@media (max-width: 480px) {
+  .edu-item { grid-template-columns: 24px 1fr; gap: 0 10px; }
+
+  .edu-top {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 6px;
+  }
+
+  .edu-period { font-size: 0.65rem; padding: 3px 10px; }
+}
+
+/* =============================================
+   TECH STACK
+   ============================================= */
+
+@media (max-width: 768px) {
+  .tech-tabs   { gap: 8px; }
+  .tech-tab    { font-size: 0.82rem; padding: 8px 14px; }
+  .tech-grid   { grid-template-columns: repeat(auto-fill, minmax(130px, 1fr)); }
+}
+
+@media (max-width: 480px) {
+  .tech-tabs   { flex-direction: column; align-items: stretch; }
+  .tech-tab    { justify-content: center; }
+  .tech-grid   { grid-template-columns: repeat(2, 1fr); }
+}
+
+/* =============================================
+   PROJECTS
+   ============================================= */
+
+@media (max-width: 900px) {
+  .projects-grid { grid-template-columns: 1fr; }
+}
+
+@media (max-width: 480px) {
+  .project-card  { padding: 22px 18px; }
+  .project-links { flex-wrap: wrap; gap: 10px; }
+  .project-link-primary { margin-left: 0; }
+}
+
+/* Project drawer — full-width on mobile */
+@media (max-width: 600px) {
+  .pd-drawer  { width: 100vw; border-left: none; }
+  .pd-header  { padding: 18px 18px 14px; }
+  .pd-body    { padding: 18px 18px 28px; }
+  .pd-divider { margin: 0 18px; }
+  .pd-gallery { grid-template-columns: 1fr; }
+  .pd-title   { font-size: 1.3rem; }
+  .pd-links   { flex-direction: column; }
+  .pd-link-btn { justify-content: center; }
+}
+
+/* =============================================
+   EXPERIENCE
+   ============================================= */
+
+@media (max-width: 900px) {
+  .exp-bento { grid-template-columns: repeat(2, 1fr); }
+  .exp-card--wide { grid-column: span 2; }
+}
+
+@media (max-width: 600px) {
+  .exp-bento { grid-template-columns: 1fr; }
+  .exp-card--wide,
+  .exp-card--normal { grid-column: span 1; }
+  .exp-group-sublabel { display: none; }
+  .exp-card { padding: 20px; }
+  .exp-card-role { font-size: 1rem; }
+}
+
+/* =============================================
+   SPARKWHIZ
+   ============================================= */
+
+@media (max-width: 768px) {
+  .sparkwhiz-card { padding: 48px 28px; }
+  .sw-features    { grid-template-columns: 1fr; gap: 10px; }
+  .sw-title       { font-size: clamp(1.8rem, 6vw, 2.5rem); }
+}
+
+@media (max-width: 480px) {
+  .sparkwhiz-card { padding: 36px 20px; border-radius: 20px; }
+  .sw-cta         { padding: 14px 24px; font-size: 0.9rem; }
+}
+
+/* =============================================
+   CONTACT
+   ============================================= */
+
+@media (max-width: 900px) {
+  .contact-inner { grid-template-columns: 1fr; gap: 40px; }
+}
+
+@media (max-width: 480px) {
+  .contact-card   { padding: 16px 18px; }
+  .contact-value  { font-size: 0.8rem; word-break: break-all; }
+}
+
+/* =============================================
+   FOOTER
+   ============================================= */
+
+@media (max-width: 600px) {
+  .footer-inner {
+    grid-template-columns: 1fr;
+    text-align: center;
+    gap: 16px;
+  }
+  .footer-right { justify-content: center; }
+}
+
+/* =============================================
+   AI CHAT WIDGET
+   ============================================= */
+
+@media (max-width: 480px) {
+  .ai-fab   { bottom: 18px; right: 18px; padding: 11px 16px; }
+  .ai-panel {
+    bottom: 76px;
+    right: 12px; left: 12px;
+    width: auto;
+    max-height: 70vh;
+  }
+}
+
+/* =============================================
+   SECTION HEADERS — fluid type
+   ============================================= */
+
+.section-title {
+  font-size: clamp(1.8rem, 5vw, 3rem);
+}
+
+.section-subtitle {
+  font-size: clamp(0.9rem, 2vw, 1.05rem);
+}
+
+/* =============================================
+   GHOST SIGNAL — keep out of center on mobile
+   ============================================= */
+
+@media (max-width: 480px) {
+  .ghost-signal { font-size: 0.72rem; }
+}
+
+/* =============================================
+   UTILITY — prevent text overflow everywhere
+   ============================================= */
+
+p, h1, h2, h3, h4, span, a {
+  overflow-wrap: break-word;
+  word-break: break-word;
+}
