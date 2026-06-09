@@ -7,7 +7,7 @@ import { HiArrowUpRight } from 'react-icons/hi2';
 
 export default function Projectdrawer({ project, onClose }) {
   const drawerRef = useRef(null);
-  const [activeImage, setActiveImage] = useState(null);
+  const [activeImage, setActiveImage] = useState(null); 
 
   useEffect(() => {
     const onKey = (e) => {

@@ -6,6 +6,7 @@ import { LiaStethoscopeSolid } from "react-icons/lia";
 import { GrAppsRounded } from "react-icons/gr";
 import { PiLockKeyFill } from "react-icons/pi";
 import { FaLinkedin } from "react-icons/fa";
+import {GiSatelliteCommunication} from "react-icons/gi";
 
 // ── Feature 3: import the drawer ──
 import Projectdrawer from './Projectdrawer';
@@ -25,12 +26,17 @@ const projects = [
         'Portable and low-cost design',
         'Supports sustainable and precision agriculture',
     ],  
-    tags: ['ESP32', 'IoT', 'Python', 'MQTT', 'React'],
+    tags: ['ESP32', 'ML', 'Python', 'Embedded C++', 'Modbus RTU'],
     accent: 'cyan',
     emoji: <LiaStethoscopeSolid/>,
-    status: 'Featured',
-    links: { demo: '#', linkedin: '#', github: 'https://github.com/24f1001981/Soil-Doctor-KTU-Miniproject-', sparkwhiz: 'https://sites.google.com/view/sparkwhiz/electrosphere/realwire/soil-doctor?authuser=0' },
-  },
+    status: 'Agriculture',
+    screenshots: [
+    '/images/soildoctor/Decision.png',
+    '/images/soildoctor/Soil.png',
+    '/images/soildoctor/fig.jpeg',
+  ],
+    links: { demo: '#', linkedin: 'https://www.linkedin.com/posts/shreya-s-n-geck_embeddedai-esp32-ai-ugcPost-7465386911264583681-ai9P/?utm_source=share&utm_medium=member_desktop&rcm=ACoAADMPzHEBleB7JPtfyZbwAwnXWrhhZMnKu2I', github: 'https://github.com/24f1001981/Soil-Doctor-KTU-Miniproject-', sparkwhiz: 'https://sites.google.com/view/sparkwhiz/electrosphere/realwire/soil-doctor?authuser=0' },
+  github : 'https://github.com/24f1001981/Soil-Doctor-KTU-Miniproject-'},
   {
     title: 'RecruitEase', subtitle : 'Placement Portal Application',
     beta :'IITM MAD 1 Project ',
@@ -54,7 +60,7 @@ const projects = [
     tags: ['Render', 'Flask', 'Python', 'Jinja2', 'HTML5', 'Bootstrap 5', 'SQLite'],
     accent: 'purple',
     emoji: <GrAppsRounded/>,
-    status: 'Live',
+    status: 'App',
     screenshots: [
     '/images/recruitease/admindashboard.png',
     '/images/recruitease/analytics.png',
@@ -88,7 +94,7 @@ const projects = [
     tags: ['PIC16F877A Microcontroller', 'Embedded C', 'MPLAB IDE', 'Proteus 8.9', 'PCB & Circuit Design', 'IoT', 'Electrical Safety & Monitoring Systems'],
     accent: 'pink',
     emoji: <PiLockKeyFill/>,
-    status: 'Hardware (Simulation)',
+    status: 'Microcontroller (Simulation)',
     screenshots: [
     '/images/circuitguard/circuitdiagram.png',
     '/images/circuitguard/circuitguard.png',,
@@ -100,10 +106,41 @@ const projects = [
     description:
       'This very website — designed from scratch with a focus on performance, subtle animations, and a consistent design language. Dark/light mode, fully responsive, deployed on Vercel.',
     tags: ['React', 'CSS', 'Framer Motion', 'Vercel'],
-    accent: 'purple',
+    accent: 'cyan',
     emoji: <BsFillLightningChargeFill/>,
-    status: 'Open Source',
+    status: 'Portfolio',
     links: { demo: '#', linkedin: '#', github: '#', sparkwhiz: '#' },
+  },
+  {
+    title: 'Adaptive Wireless Communication System', subtitle : 'Performance Analysis of Threshold-Based Modulation Switching over AWGN and Rayleigh Fading Channels',
+    beta :'Built with MATLAB R2024a App Designer ',
+    description: 
+'AdaptiveCommSim is a real-time wireless communication simulator built in MATLAB App Designer. It implements threshold-based adaptive modulation (BPSK/QPSK) over AWGN and Rayleigh fading channels, with four live visualisation panels — BER curves, IQ constellation, carrier waveform, and eye diagram — and a live metrics dashboard.',
+
+    highlights: [
+  'Threshold-based adaptive controller auto-switches between BPSK and QPSK based on live SNR vs user-defined threshold',
+
+'BPSK and QPSK with accurate Gray coding, coherent PSK demodulation, and validated BER against berawgn / berfading theory curves',
+'Two-path Rayleigh fading channel with 100 Hz Doppler shift + configurable AWGN; SNR range −2 to 30 dB',
+
+'Four live axes: BER vs SNR · IQ Constellation · Carrier Waveform · Eye Diagram — all updated per run',
+
+'Live metrics dashboard: throughput (Mbps), spectral efficiency (b/s/Hz), BER, active modulation — with adaptive mode lamp indicator',
+
+'Adaptive gain ~30–60% improvement in time-averaged spectral efficiency over fixed BPSK in a 0–20 dB mobile channel scenario',
+],
+
+    tags: ['MATLAB App Designer','BPSK-QPSK','AWGN & Rayleigh Fading','Gray Coding','Adaptive Modulation'],
+    accent: 'purple',
+    emoji: <GiSatelliteCommunication/>,
+    status: 'Commn (Simulation)',
+    screenshots: [
+    '/images/adaptive/1.png',
+    '/images/adaptive/2.png',
+    '/images/adaptive/3.png',
+    '/images/adaptive/4.png',
+  ],
+    links: { demo: '', linkedin: '', github: 'https://github.com/24f1001981/placement-portal-app', sparkwhiz: 'https://sites.google.com/view/sparkwhiz/codecanvas/appstudio/placement-portal-system?authuser=0' },
   },
 ];
 
