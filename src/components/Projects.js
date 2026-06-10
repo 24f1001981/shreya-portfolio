@@ -102,16 +102,6 @@ const projects = [
     links: { demo: 'https://drive.google.com/file/d/1rLBct0EhoUBXl7SiQaQ-xzD3Z8qEhbHd/view?usp=sharing', linkedin: 'https://www.linkedin.com/posts/shreya-s-n-geck_embeddedsystems-pic16f877a-engineeringstudent-activity-7341002822865297408-mTLa?utm_source=share&utm_medium=member_desktop&rcm=ACoAADMPzHEBleB7JPtfyZbwAwnXWrhhZMnKu2I', github: 'https://github.com/24f1001981/CircuitGuard', sparkwhiz: 'https://sites.google.com/view/sparkwhiz/electrosphere/simulab/circuitguard?authuser=0' },
   },
   {
-    title: 'Portfolio Website',
-    description:
-      'This very website — designed from scratch with a focus on performance, subtle animations, and a consistent design language. Dark/light mode, fully responsive, deployed on Vercel.',
-    tags: ['React', 'CSS', 'Framer Motion', 'Vercel'],
-    accent: 'cyan',
-    emoji: <BsFillLightningChargeFill/>,
-    status: 'Portfolio',
-    links: { demo: '#', linkedin: '#', github: '#', sparkwhiz: '#' },
-  },
-  {
     title: 'Adaptive Wireless Communication System', subtitle : 'Performance Analysis of Threshold-Based Modulation Switching over AWGN and Rayleigh Fading Channels',
     beta :'Built with MATLAB R2024a App Designer ',
     description: 
