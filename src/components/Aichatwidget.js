@@ -491,15 +491,24 @@ function getResponse(input, context, memory) {
 
   // Random glitch / interrupt (3%)
   if (Math.random() < 0.03) {
-    return {
-      text: pick(RANDOM_GLITCHES),
-      newContext: context,
-      newMemory: memory,
-    };
+    return { text: pick(RANDOM_GLITCHES), newContext: context, newMemory: memory };
   }
 
-  // How/why trap (excluding specific allowed patterns)
+  // Update memory from this input
+  const interest = extractMemoryInterest(lower);
+  const newMemory = interest && !memory.includes(interest)
+    ? [...memory, interest]
+    : memory;
+
+  // Entity-first routing
+  const forcedTopic = getEntityForcedTopic(lower);
+  // Score keyword topics early
+  const bestTopic = forcedTopic || getBestTopic(lower);
+
+  // How/why trap — ONLY fires if no topic was found
+  // This stops it from blocking suggested questions like "How was RecruitEase built?"
   if (
+    !bestTopic &&
     (lower.includes('how') || lower.includes('why')) &&
     !lower.includes('how to contact') &&
     !lower.includes('how did') &&
@@ -513,42 +522,28 @@ function getResponse(input, context, memory) {
         `For the deeper 'how' and 'why' stuff, Shreya's the one to ask 🌟 — snshreya2004@gmail.com. But I can tell you what she's built, where she studies, or her IEEE work right now!`,
       ]),
       newContext: context,
-      newMemory: memory,
+      newMemory,
     };
   }
 
-  // Update memory from this input
-  const interest = extractMemoryInterest(lower);
-  const newMemory = interest && !memory.includes(interest)
-    ? [...memory, interest]
-    : memory;
-
-  // Memory-personalized response (triggered if user asks about recommendations/projects with memory)
+  // Memory-personalized response
   if (
     memory.length > 0 &&
     (lower.includes('recommend') || lower.includes('would i like') || lower.includes('for me') || lower.includes('suggest'))
   ) {
     const personalizedText = getMemoryPersonalizedResponse(memory);
     if (personalizedText) {
-      return {
-        text: personalizedText,
-        suggestions: getSuggestionList(context),
-        newContext: context,
-        newMemory,
-      };
+      return { text: personalizedText, suggestions: getSuggestionList(context), newContext: context, newMemory };
     }
   }
-
-  // Entity-first routing (improvement #5)
-  const forcedTopic = getEntityForcedTopic(lower);
 
   // Context follow-up
   if (context && KB[context]) {
     const followupKeys = CONTEXT_FOLLOWUP[context] || [];
-    const wordCount    = lower.split(/\s+/).length;
-    const isVague      = wordCount <= 4;
+    const wordCount = lower.split(/\s+/).length;
+    const isVague = wordCount <= 4;
     const hasFollowupKey = followupKeys.some(k => lower.includes(k));
-    const noNewTopic   = !getBestTopic(lower) && !forcedTopic;
+    const noNewTopic = !bestTopic;
 
     if (hasFollowupKey || (isVague && noNewTopic && wordCount >= 2)) {
       return {
@@ -560,21 +555,13 @@ function getResponse(input, context, memory) {
     }
   }
 
-  const bestTopic = forcedTopic || getBestTopic(lower);
-
   if (bestTopic) {
     const continuity = getContinuityLine(context, bestTopic);
     let response = pick(KB[bestTopic]);
     response = humanizeResponse(response);
     response = addReaction(response);
     if (continuity) response = `${continuity}\n\n${response}`;
-
-    return {
-      text: response,
-      suggestions: getSmartSuggestions(input, bestTopic),
-      newContext: bestTopic,
-      newMemory,
-    };
+    return { text: response, suggestions: getSmartSuggestions(input, bestTopic), newContext: bestTopic, newMemory };
   }
 
   return {
