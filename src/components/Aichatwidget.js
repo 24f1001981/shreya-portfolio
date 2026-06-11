@@ -9,15 +9,20 @@ import { HiSparkles } from 'react-icons/hi2';
    ============================================= */
 const KB = {
   projects: [
-    `⚡ Project archive loaded.\n\nTop builds from Shreya's lab:\n\n🌱 Soil Doctor\nESP32-powered soil intelligence — NPK sensing, crop recommendations via Decision Tree AI\n\n💼 RecruitEase\nFull-stack placement portal built for IITM MAD-1 — role-based auth, live analytics\n\n🔐 CircuitGuard\nPIC16F877A password lock, simulated in Proteus with lockout mechanism\n\nAnd yep — this portfolio itself counts as project #4 👀`,
-    `🛰️ Scanning project history...\n\n✦ Soil Doctor — real-time NPK + pH + moisture sensing on ESP32 🌾\n✦ RecruitEase — Flask + SQLite placement portal with full admin/company/student roles 🧑‍💻\n✦ CircuitGuard — embedded C security system, 4-digit PIN, auto-lockout 🔒\n\nEach one documented on SparkWhiz too. Click any card for the deep dive ⚡`,
-    `> scanning project history...\n> 3 major builds found\n> loading summaries...\n\n[01] Soil Doctor → IoT + Embedded + AI 🌱\n[02] RecruitEase → Full-Stack Web App 💼\n[03] CircuitGuard → Microcontroller Security 🔐\n[04] This portfolio → React, Canvas, orbital UI 🪐\n\nScroll up and click any card — full specs await 👆`,
-    `One of the coolest things about Shreya's project list is how different each one is 🌱\n\nSoil Doctor lives in the real world — sensors in actual dirt, reading pH and NPK levels in real time. RecruitEase is full-stack web. CircuitGuard is pure embedded C on a PIC microcontroller.\n\nThree projects. Three completely different problem domains. Same engineer. ⚡`,
+    `⚡ Project archive loaded.\n\nTop builds from Shreya's lab:\n\n🌱 Soil Doctor\nESP32-powered soil intelligence — NPK sensing, crop recommendations via Decision Tree AI\n\n💼 RecruitEase\nFull-stack placement portal built for IITM MAD-1 — role-based auth, live analytics\n\n🔐 CircuitGuard\nPIC16F877A password lock, simulated in Proteus with lockout mechanism\n\n🛰️ Adaptive Wireless Comm System\nMATLAB App Designer simulator — BPSK/QPSK adaptive modulation over AWGN & Rayleigh fading\n\nAnd yep — this portfolio itself counts as project #5 👀`,
+    `🛰️ Scanning project history...\n\n✦ Soil Doctor — real-time NPK + pH + moisture sensing on ESP32 🌾\n✦ RecruitEase — Flask + SQLite placement portal with full admin/company/student roles 🧑‍💻\n✦ CircuitGuard — embedded C security system, 4-digit PIN, auto-lockout 🔒\n✦ Adaptive Wireless Comm — MATLAB BPSK/QPSK simulator with live BER curves 📡\n\nEach one documented on SparkWhiz too. Click any card for the deep dive ⚡`,
+    `> scanning project history...\n> 4 major builds found\n> loading summaries...\n\n[01] Soil Doctor → IoT + Embedded + AI 🌱\n[02] RecruitEase → Full-Stack Web App 💼\n[03] CircuitGuard → Microcontroller Security 🔐\n[04] Adaptive Wireless Comm → MATLAB Simulation 📡\n[05] This portfolio → React, Canvas, orbital UI 🪐\n\nScroll up and click any card — full specs await 👆`,
+    `One of the coolest things about Shreya's project list is how different each one is 🌱\n\nSoil Doctor lives in the real world — sensors in actual dirt, reading pH and NPK levels in real time. RecruitEase is full-stack web. CircuitGuard is pure embedded C on a PIC microcontroller. And the Adaptive Wireless project is a full MATLAB simulation of real communication systems.\n\nFour projects. Four completely different problem domains. Same engineer. ⚡`,
+  ],
+  adaptive: [
+    `🛰️ Adaptive Wireless Communication System\n\nBuilt with MATLAB R2024a App Designer 📡\n\nA real-time wireless communication simulator implementing threshold-based adaptive modulation:\n\n✦ Auto-switches between BPSK and QPSK based on live SNR\n✦ AWGN + two-path Rayleigh fading channel (100 Hz Doppler)\n✦ Four live panels: BER curves · IQ constellation · carrier waveform · eye diagram\n✦ Live metrics: throughput, spectral efficiency, BER, active modulation mode\n\nAdaptive gain: ~30–60% improvement in spectral efficiency over fixed BPSK 🚀`,
+    `> accessing AdaptiveCommSim logs...\n> simulation engine: MATLAB App Designer\n> channels modelled: AWGN + Rayleigh fading\n> modulation schemes: BPSK + QPSK\n\nKey features:\n📊 BER validated against berawgn/berfading theory curves\n📡 SNR range: −2 to 30 dB\n⚡ Threshold-based controller — smarter than fixed modulation\n🌐 Live spectral efficiency boost: up to 60% over BPSK\n\nPure signal processing + app design. No hardware needed — the maths is the system 🔬`,
+    `📡 Threshold-based modulation switching — what does that even mean?\n\nBasically: the system watches the channel quality (SNR) in real time. If the channel is good → switch to QPSK (higher data rate). If it degrades → drop back to BPSK (more robust).\n\nShreya built this entirely in MATLAB App Designer with four live visualisation panels and a metrics dashboard. It's like a real comms system — just running in simulation 🛰️\n\nAnd yes, the BER curves match theory. Checked against berawgn. She's thorough like that ⚡`,
   ],
   skills: [
-    `💻 Skill matrix loading...\n\n⚡ Hardware\nESP32 · Arduino · PIC16F877A · PCB Design · Proteus · FPGA\n\n🌐 Web\nReact · Flask · Node.js · SQLite · REST APIs · Firebase\n\n🧠 AI / Data\nML · Deep Learning · Gen AI · Business Analytics · IIT Madras DS\n\n🖥️ Languages\nPython · C/C++ · Embedded C · JavaScript · Verilog · Java\n\nHardware to cloud — full spectrum 🚀`,
-    `> running stack diagnostics...\n> hardware layer: active ✓\n> web layer: active ✓\n> AI/ML layer: active ✓\n> systems: all online\n\nEmbedded: ESP32, Arduino, PIC, FPGA, Proteus 🔬\nWeb: React, Flask, Node.js, Firebase, SQLite 💻\nAI/ML: Machine Learning, Deep Learning, Gen AI 🤖\nLanguages: Python, C++, Embedded C, JS, Verilog ⚡`,
-    `Short answer?\n\nYep. Unusually deep for an undergrad. ⚡\n\n🔩 Circuits → PCB design, signal processing, EDA tools\n💻 Code → React, Flask, Python, JS, Embedded C\n🧠 Intelligence → ML, Data Science, IIT Madras DS program\n📡 Connectivity → IoT, MQTT, LoRaWAN, cloud integration\n\nIntersection of electrons and algorithms. Literally. 🌌`,
+    `💻 Skill matrix loading...\n\n⚡ Hardware\nESP32 · Arduino · PIC16F877A · PCB Design · Proteus · FPGA\n\n🌐 Web\nReact · Flask · Node.js · SQLite · REST APIs · Firebase\n\n🧠 AI / Data\nML · Deep Learning · Gen AI · Business Analytics · IIT Madras DS\n\n📡 Communications & Signal Processing\nMATLAB · BPSK/QPSK · Adaptive Modulation · AWGN/Rayleigh Channels\n\n🖥️ Languages\nPython · C/C++ · Embedded C · JavaScript · Verilog · Java\n\nHardware to cloud — full spectrum 🚀`,
+    `> running stack diagnostics...\n> hardware layer: active ✓\n> web layer: active ✓\n> AI/ML layer: active ✓\n> comms/signal processing: active ✓\n> systems: all online\n\nEmbedded: ESP32, Arduino, PIC, FPGA, Proteus 🔬\nWeb: React, Flask, Node.js, Firebase, SQLite 💻\nAI/ML: Machine Learning, Deep Learning, Gen AI 🤖\nComms: MATLAB, BPSK/QPSK, Adaptive Modulation 📡\nLanguages: Python, C++, Embedded C, JS, Verilog ⚡`,
+    `Short answer?\n\nYep. Unusually deep for an undergrad. ⚡\n\n🔩 Circuits → PCB design, signal processing, EDA tools\n💻 Code → React, Flask, Python, JS, Embedded C\n🧠 Intelligence → ML, Data Science, IIT Madras DS program\n📡 Comms → MATLAB, adaptive modulation, channel modelling\n📡 Connectivity → IoT, MQTT, LoRaWAN, cloud integration\n\nIntersection of electrons and algorithms. Literally. 🌌`,
   ],
   education: [
     `🎓 Academic status: dual-degree survival mode active 😭\n\n📡 B.Tech (Hons.) ECE + CS Minor\n   GEC Kozhikode · APJAKTU\n   CGPA: 8.59 ⚡\n\n🧠 BS in Data Science & Applications\n   IIT Madras\n   Running simultaneously\n\nTwo degrees. One person. No chill. 💪`,
@@ -25,9 +30,9 @@ const KB = {
     `📊 Credentials verified:\n\n[ACTIVE] B.Tech ECE — GEC Kozhikode\n   Honours · CS Minor · CGPA 8.59\n\n[ACTIVE] BS Data Science — IIT Madras\n   Dual Diploma certified 🧪\n\n[COMPLETED] Higher Secondary — 97.5%\n[COMPLETED] SSLC — Full A+ 💯\n\nBoth degrees running in parallel. Intense doesn't cover it 😄`,
   ],
   ieee: [
-    `⚡ IEEE profile loaded:\n\n🚀 Women in Aerospace\n   IEEE AESS Kerala Section — active member\n\n📝 Lead, Proposal Writing Team\n   IEEE SB GEC Kozhikode — 2026\n\n👩‍💻 Secretary, WIE AG\n   IEEE SB GEC Kozhikode — 2025-26\n   Events reached 200+ students\n\nCommunity building is core to who she is 🌟`,
-    `> connecting to IEEE records...\n> 3 active roles found\n> impact level: significant\n\n✦ Women in Aerospace — AESS Kerala Section 🚀\n✦ Proposal Writing Lead — SB GEC KKD 📄\n✦ Former WIE Secretary — ran workshops, outreach, events 👩‍💻\n\nPassionate about building spaces for women in engineering and aerospace.\nReal impact work 💜`,
-    `[TOO MANY IEEE ACTIVITIES DETECTED]\n[PROCESSING...]\n\nOkay so 😭 —\n\n[2026] Women in Aerospace · AESS Kerala 🛸\n[2026] Proposal Writing Lead · SB GEC KKD 📝\n[2025] WIE AG Secretary · 200+ students reached 💜\n\nIf it involves IEEE and women in engineering — she's probably leading it 🌟`,
+    `⚡ IEEE profile loaded:\n\n🚀 WIA Representative\n   IEEE AESS Kerala Chapter Student Leadership Team — 2026\n\n📝 Lead, Proposal Writing Team\n   IEEE SB GEC Kozhikode — 2026\n\n👩‍💻 Secretary, WIE AG\n   IEEE SB GEC Kozhikode — 2025-26\n   Events reached 200+ students\n\nCommunity building is core to who she is 🌟`,
+    `> connecting to IEEE records...\n> 3 active roles found\n> impact level: significant\n\n✦ WIA Representative — AESS Kerala Chapter Student Leadership Team 2026 🚀\n✦ Proposal Writing Lead — SB GEC KKD 📄\n✦ Former WIE Secretary — ran workshops, outreach, events 👩‍💻\n\nPassionate about building spaces for women in engineering and aerospace.\nReal impact work 💜`,
+    `[TOO MANY IEEE ACTIVITIES DETECTED]\n[PROCESSING...]\n\nOkay so 😭 —\n\n[2026] WIA Representative · AESS Kerala Chapter Leadership Team 🛸\n[2026] Proposal Writing Lead · SB GEC KKD 📝\n[2025] WIE AG Secretary · 200+ students reached 💜\n\nIf it involves IEEE and women in engineering — she's probably leading it 🌟`,
   ],
   contact: [
     `📡 Communication channels online:\n\n📧 snshreya2004@gmail.com\n📧 shreyasn@ieee.org\n💼 linkedin.com/in/shreya-s-n-geck\n🐙 github.com/24f1001981\n\nScroll to the Contact section for one-click links ⚡\nShe's always happy to connect 🌟`,
@@ -48,8 +53,8 @@ const KB = {
     `[✓] Open to project collabs\n[✓] Open to technical conversations\n[✓] Open to internship opportunities\n[✓] Open to just saying hi 😊\n\nEmail: snshreya2004@gmail.com\nLinkedIn: linkedin.com/in/shreya-s-n-geck 🔗`,
   ],
   aerospace: [
-    `🚀 Aerospace interest: active\n\nShe's part of Women in Aerospace at\nIEEE AESS Kerala Section 🛸\n\nContributing to:\n✦ Aerospace awareness initiatives\n✦ Mentorship programs\n✦ Empowering women in advanced engineering\n\nBig passion area. Growing fast 🌌`,
-    `> accessing aerospace module...\n> IEEE AESS Kerala Section: confirmed\n\nWomen in Aerospace Initiative\n\nCommunity building + awareness + mentorship.\nOne of the domains she cares about most.\n\nThe sky isn't the limit — it's the starting point 🚀`,
+    `🚀 Aerospace interest: active\n\nShe's the WIA Representative for the\nIEEE AESS Kerala Chapter Student Leadership Team 2026 🛸\n\nContributing to:\n✦ Aerospace awareness initiatives\n✦ Mentorship programs\n✦ Empowering women in advanced engineering\n\nBig passion area. Growing fast 🌌`,
+    `> accessing aerospace module...\n> IEEE AESS Kerala Chapter: confirmed\n> Role: WIA Representative 2026\n\nWomen in Aerospace Initiative\n\nCommunity building + awareness + mentorship.\nOne of the domains she cares about most.\n\nThe sky isn't the limit — it's the starting point 🚀`,
   ],
   ncc: [
     `⚓ NCC record found:\n\n9(K) Naval Unit NCC — Kozhikode\nActive: 2017–2019\nCertificate: NCC 'A' 🎖️\n\nBuilt: leadership, discipline, teamwork\nAll before engineering even started 💪`,
@@ -58,7 +63,7 @@ const KB = {
   portfolio: [
     `🛰️ Portfolio system diagnostics:\n\nFramework: React ⚛️\nAnimation: requestAnimationFrame\nBackground: Canvas API starfield 🌟\nCursor: Custom — CSS + rAF\nTheme: Dark/Light with CSS vars 🌗\n\nSpecial systems:\n✦ Orbital UI hero 🪐\n✦ Flip cards · Bento grids\n✦ AI assistant (that's me 👀)\n✦ Hidden easter eggs 🥚\n\nStatus: Stable... mostly 😭`,
     `> running portfolio diagnostics...\n> React: ✓\n> Canvas starfield: ✓\n> Custom cursor: ✓\n> Easter eggs: classified 👀\n> AI assistant: obviously ✓\n\nBuilt from scratch — zero component libraries.\nPure React + CSS. Painful. Worth it 😭⚡`,
-    `[REACT STATE CORRUPTION DETECTED]\n[jk it's fine]\n[probably]\n\nNotable:\n🪐 Orbital pill animation via rAF\n🌟 Starfield with Canvas API\n⚡ Custom cursor with lerp physics\n🌗 Dark/light mode with CSS vars\n👀 Konami easter egg (try it)\n🤖 This very AI assistant\n\nLiterally project #4 on her list 😄`,
+    `[REACT STATE CORRUPTION DETECTED]\n[jk it's fine]\n[probably]\n\nNotable:\n🪐 Orbital pill animation via rAF\n🌟 Starfield with Canvas API\n⚡ Custom cursor with lerp physics\n🌗 Dark/light mode with CSS vars\n👀 Konami easter egg (try it)\n🤖 This very AI assistant\n\nLiterally project #5 on her list 😄`,
   ],
   hello: [
     `Hey there! 👋✨\n\nI'm Shreya's portfolio AI —\nask me anything about her projects,\nskills, education, IEEE work, or how to reach her.\n\nWhat would you like to know? ⚡`,
@@ -74,8 +79,8 @@ const KB = {
     `Happy to help! 😄\nWhat else are you curious about?`,
   ],
   about: [
-    `🔍 Profile scan complete:\n\nShreya S N — ECE + Data Science\nGEC Kozhikode + IIT Madras 🎓\n\nLives at the intersection of:\n⚡ Circuits · 💻 Code · 🧠 Curiosity\n\nBuilds things that span hardware to cloud.\nLeads communities through IEEE.\nDocuments everything on SparkWhiz.\n\nDriven by the kind of curiosity that\npulls circuits apart at midnight 🌌`,
-    `> scanning full profile...\n> identity confirmed\n> unusually wide skill surface detected\n\nShreya S N — quick profile:\n\n🎓 Dual degree — ECE + IIT Madras DS\n⚡ Embedded systems to full-stack web\n🌐 IEEE community builder\n📓 SparkWhiz technical journalist\n🚀 Women in Aerospace member\n\nMost interesting problems live where electrons and algorithms meet. She agrees 🧠`,
+    `🔍 Profile scan complete:\n\nShreya S N — ECE + Data Science\nGEC Kozhikode + IIT Madras 🎓\n\nLives at the intersection of:\n⚡ Circuits · 💻 Code · 🧠 Curiosity\n\nBuilds things that span hardware to cloud.\nLeads communities through IEEE as WIA Representative.\nDocuments everything on SparkWhiz.\n\nDriven by the kind of curiosity that\npulls circuits apart at midnight 🌌`,
+    `> scanning full profile...\n> identity confirmed\n> unusually wide skill surface detected\n\nShreya S N — quick profile:\n\n🎓 Dual degree — ECE + IIT Madras DS\n⚡ Embedded systems to full-stack web\n📡 Comms & signal processing (MATLAB)\n🌐 IEEE WIA Representative · AESS Kerala\n📓 SparkWhiz technical journalist\n🚀 Aerospace community builder\n\nMost interesting problems live where electrons and algorithms meet. She agrees 🧠`,
     `Engineer. Builder. Community maker.\n\nBy day: ECE student + IIT Madras Data Science\nBy night: debugging circuits and React state 😭\n\nPassionate about hardware, software,\nand lifting others up through IEEE 💜\n\nThe kind of engineer who rebuilds it\neven after it works — just to understand it better 🔬`,
   ],
   easterEgg: [
@@ -96,6 +101,11 @@ const KB = {
 /* ── KEYWORD MAP ── */
 const KEYWORD_MAP = [
   {
+    topic: 'adaptive',
+    exact:   ['adaptive', 'matlab', 'bpsk', 'qpsk', 'modulation', 'rayleigh', 'awgn', 'ber', 'fading', 'wireless', 'communication system', 'commn', 'snr', 'doppler', 'spectral'],
+    partial: ['signal processing', 'channel model', 'communication sim', 'adaptive comm'],
+  },
+  {
     topic: 'projects',
     exact:   ['project', 'projects', 'built', 'build', 'soil', 'doctor', 'recruitease', 'recruit', 'circuitguard', 'circuit'],
     partial: ['make', 'create', 'develop', 'work on', 'what has she'],
@@ -112,7 +122,7 @@ const KEYWORD_MAP = [
   },
   {
     topic: 'ieee',
-    exact:   ['ieee', 'wie', 'wia', 'volunteer', 'volunteering', 'proposal', 'secretary'],
+    exact:   ['ieee', 'wie', 'wia', 'volunteer', 'volunteering', 'proposal', 'secretary', 'representative', 'aess'],
     partial: ['leadership', 'community', 'lead', 'committee', 'organization'],
   },
   {
@@ -137,7 +147,7 @@ const KEYWORD_MAP = [
   },
   {
     topic: 'aerospace',
-    exact:   ['aerospace', 'aess', 'aviation', 'rocket', 'satellite'],
+    exact:   ['aerospace', 'aviation', 'rocket', 'satellite'],
     partial: ['space', 'flying', 'aircraft'],
   },
   {
@@ -183,10 +193,11 @@ const KEYWORD_MAP = [
 ];
 
 const CONTEXT_FOLLOWUP = {
-  projects:    ['embedded', 'flask', 'soil', 'recruit', 'circuit', 'which one', 'that one', 'tell more', 'detail', 'more about', 'esp32', 'pic', 'more'],
-  skills:      ['embedded', 'python', 'react', 'what else', 'more', 'detail', 'languages', 'tools'],
+  projects:    ['embedded', 'flask', 'soil', 'recruit', 'circuit', 'adaptive', 'matlab', 'which one', 'that one', 'tell more', 'detail', 'more about', 'esp32', 'pic', 'more'],
+  adaptive:    ['bpsk', 'qpsk', 'ber', 'snr', 'rayleigh', 'fading', 'modulation', 'more', 'details', 'how does', 'explain'],
+  skills:      ['embedded', 'python', 'react', 'matlab', 'what else', 'more', 'detail', 'languages', 'tools'],
   education:   ['cgpa', 'grade', 'when', 'which', 'details', 'minor', 'more', 'marks'],
-  ieee:        ['when', 'which', 'more', 'details', 'role', 'events', 'what did'],
+  ieee:        ['when', 'which', 'more', 'details', 'role', 'events', 'what did', 'representative'],
   contact:     ['which', 'preferred', 'best way', 'other'],
   internship:  ['more', 'details', 'what did', 'which company', 'duration'],
   sparkwhiz:   ['more', 'what else', 'topics', 'link'],
@@ -197,7 +208,12 @@ const RECOMMENDATIONS = {
   projects: [
     'Tell me about Soil Doctor 🌱',
     "What's her tech stack? 💻",
-    'How was RecruitEase built? ⚡',
+    'Tell me about the Adaptive Wireless project 📡',
+  ],
+  adaptive: [
+    'How does adaptive modulation work? 📡',
+    "What other projects has she built? 🛠️",
+    'What's her MATLAB skill level? 🔬',
   ],
   skills: [
     'What projects use these skills? 🛠️',
@@ -212,7 +228,7 @@ const RECOMMENDATIONS = {
   ieee: [
     'Tell me about Women in Aerospace 🚀',
     'What events did she lead? 💜',
-    'Is she into aerospace tech? 🛰️',
+    'What is the WIA Representative role? 🛸',
   ],
   internship: [
     'What embedded tools does she know? ⚡',
@@ -280,9 +296,14 @@ const SMART_FOLLOWUPS = {
     'Which microcontroller was used? ⚡',
     'Was it simulated in Proteus? 🧪',
   ],
+  adaptive: [
+    'How does the SNR threshold switching work? 📡',
+    'What channels were modelled? 🔬',
+    'How much spectral efficiency gain? ⚡',
+  ],
   ieee: [
     'What events did she organize? 💜',
-    'Tell me about Women in Aerospace 🚀',
+    'Tell me about the WIA Representative role 🚀',
     'What leadership roles has she held? 🌟',
   ],
   portfolio: [
@@ -302,6 +323,10 @@ const CONTINUITY_LINES = {
     "Since we're talking about her projects ⚡",
     "That actually connects to another interesting build 👀",
     "Staying in engineering mode for a second 🛠️",
+  ],
+  adaptive: [
+    "That connects to the comms project too 📡",
+    "Signal processing is another strong layer in her stack ⚡",
   ],
   skills: [
     "That connects really well to her tech stack 💻",
@@ -327,7 +352,8 @@ const INTEREST_SEEDS = {
   ai:          ['ai', 'machine learning', 'ml', 'deep learning', 'data science', 'neural'],
   web:         ['web', 'react', 'flask', 'frontend', 'fullstack', 'backend', 'javascript'],
   aerospace:   ['aerospace', 'space', 'satellite', 'rocket', 'aviation', 'aess'],
-  leadership:  ['ieee', 'leadership', 'community', 'volunteer', 'secretary', 'lead'],
+  leadership:  ['ieee', 'leadership', 'community', 'volunteer', 'secretary', 'lead', 'representative'],
+  comms:       ['matlab', 'bpsk', 'qpsk', 'modulation', 'rayleigh', 'awgn', 'signal', 'wireless'],
 };
 
 /* ── MEMORY-PERSONALIZED RESPONSES ── */
@@ -339,8 +365,9 @@ function getMemoryPersonalizedResponse(memory) {
     embedded: `Since you mentioned embedded systems earlier — you'd probably love Soil Doctor 🌱\nIt's ESP32-based with real-time NPK sensing. Very hands-on hardware. And CircuitGuard too — PIC16F877A, embedded C, Proteus simulation 🔐`,
     ai:       `Given your interest in AI, Soil Doctor is worth a deeper look 🤖\nIt uses a Decision Tree model to give crop recommendations based on real sensor data. Not just a demo — actual soil readings driving actual AI output ⚡`,
     web:      `Since you're into web dev, RecruitEase is probably the most relevant build 💻\nFull-stack: Flask + SQLite + role-based auth for students, companies, and admins. Built for the IIT Madras MAD-1 course 🎓`,
-    aerospace:`You'd love Shreya's aerospace involvement 🚀\nShe's active in Women in Aerospace at IEEE AESS Kerala Section — pushing mentorship and awareness. A big passion area for her 🌌`,
-    leadership:`Leadership-wise, IEEE has been a big chapter 💜\nWIE Secretary in 2025-26 (200+ students reached), Proposal Writing Lead in 2026, and Women in Aerospace at AESS Kerala. She's very much a builder of communities 🌟`,
+    aerospace:`You'd love Shreya's aerospace involvement 🚀\nShe's the WIA Representative for IEEE AESS Kerala Chapter Student Leadership Team 2026 — pushing mentorship and awareness. A big passion area for her 🌌`,
+    leadership:`Leadership-wise, IEEE has been a big chapter 💜\nWIA Representative at AESS Kerala (2026), WIE Secretary in 2025-26 (200+ students reached), and Proposal Writing Lead. She's very much a builder of communities 🌟`,
+    comms:    `Since you're interested in comms/signal processing — the Adaptive Wireless System is Shreya's most relevant build 📡\nMATLAB App Designer, BPSK/QPSK adaptive modulation, AWGN + Rayleigh fading channels. It even validates against theory curves ⚡`,
   };
 
   return responses[last] || null;
@@ -348,13 +375,14 @@ function getMemoryPersonalizedResponse(memory) {
 
 /* ── ENTITY-FIRST ROUTING ── */
 const ENTITY_FORCE_MAP = [
-  { entities: ['recruitease', 'recruit ease'],      topic: 'projects' },
-  { entities: ['soil doctor', 'soildoctor'],         topic: 'projects' },
-  { entities: ['circuitguard', 'circuit guard'],     topic: 'projects' },
-  { entities: ['keltron'],                           topic: 'internship' },
-  { entities: ['sparkwhiz', 'spark whiz'],           topic: 'sparkwhiz' },
-  { entities: ['gec kozhikode', 'gec'],              topic: 'education' },
-  { entities: ['iit madras', 'iitm'],                topic: 'education' },
+  { entities: ['recruitease', 'recruit ease'],              topic: 'projects' },
+  { entities: ['soil doctor', 'soildoctor'],                topic: 'projects' },
+  { entities: ['circuitguard', 'circuit guard'],            topic: 'projects' },
+  { entities: ['adaptive wireless', 'adaptivecommsim'],     topic: 'adaptive' },
+  { entities: ['keltron'],                                  topic: 'internship' },
+  { entities: ['sparkwhiz', 'spark whiz'],                  topic: 'sparkwhiz' },
+  { entities: ['gec kozhikode', 'gec'],                     topic: 'education' },
+  { entities: ['iit madras', 'iitm'],                       topic: 'education' },
 ];
 
 function getEntityForcedTopic(lower) {
@@ -367,6 +395,7 @@ function getEntityForcedTopic(lower) {
 /* ── THINKING STAGES for immersive loading ── */
 const THINKING_STAGES_MAP = {
   projects:    ['⚡ Accessing project archive...', '🛰️ Matching build logs...', '🔬 Analyzing project data...', '✨ Building response...'],
+  adaptive:    ['📡 Loading comms simulation logs...', '🔬 Accessing signal processing data...', '⚡ Compiling MATLAB results...', '✨ Building response...'],
   skills:      ['🛠️ Running stack diagnostics...', '📂 Mapping tech layers...', '⚡ Compiling skill matrix...', '✨ Building response...'],
   education:   ['🎓 Fetching academic records...', '📊 Verifying credentials...', '⚡ Cross-referencing degrees...', '✨ Building response...'],
   ieee:        ['🌐 Connecting to IEEE records...', '🛰️ Scanning volunteer history...', '💜 Loading community impact...', '✨ Building response...'],
@@ -435,8 +464,9 @@ function getContinuityLine(previousContext, currentTopic) {
   if (!previousContext) return '';
   if (previousContext === currentTopic) {
     const sameTopic = {
-      projects: ["Since we're still talking about her projects 🌱", "Diving deeper into the project archive ⚡"],
-      skills:   ["Still in full engineering mode 👀"],
+      projects:  ["Since we're still talking about her projects 🌱", "Diving deeper into the project archive ⚡"],
+      adaptive:  ["Going deeper into the comms simulation 📡"],
+      skills:    ["Still in full engineering mode 👀"],
       portfolio: ["And the portfolio gets even cooler honestly 🌌"],
     };
     const arr = sameTopic[currentTopic];
@@ -505,11 +535,12 @@ function getResponse(input, context, memory) {
   // Score keyword topics early
   const bestTopic = forcedTopic || getBestTopic(lower);
 
-  // How/why trap — ONLY fires if no topic was found
-  // This stops it from blocking suggested questions like "How was RecruitEase built?"
+  // FIX: how/why trap now only fires if truly no topic AND input is very vague
+  // Previously blocked valid questions like "how does the adaptive modulation work"
   if (
     !bestTopic &&
-    (lower.includes('how') || lower.includes('why')) &&
+    (lower.startsWith('how') || lower.startsWith('why')) &&
+    lower.split(/\s+/).length <= 3 &&
     !lower.includes('how to contact') &&
     !lower.includes('how did') &&
     !lower.includes('how many') &&
@@ -577,7 +608,8 @@ function getResponse(input, context, memory) {
   };
 }
 
-/* ── Typewriter hook (improvement #1 — stable via animate flag) ── */
+/* ── Typewriter hook
+   FIX: added `animate` to dependency array so it re-runs if animate flag changes ── */
 function useTypewriter(text, animate, speed = 14, onDone) {
   const [displayed, setDisplayed] = useState(animate ? '' : text);
   const onDoneRef = useRef(onDone);
@@ -597,8 +629,8 @@ function useTypewriter(text, animate, speed = 14, onDone) {
       }
     }, dynamicSpeed);
     return () => clearInterval(id);
-    
-  }, [text]);
+    // FIX: added `animate` to deps
+  }, [text, animate]);
 
   return displayed;
 }
@@ -610,7 +642,6 @@ const SUGGESTED = [
   "Is she open to collaborations? 🤝",
 ];
 
-/* ── TypewriterBubble (improvement #1) ── */
 function TypewriterBubble({ content, animate, onDone }) {
   const displayed = useTypewriter(content, animate, 18, onDone);
   return (
@@ -627,7 +658,7 @@ export default function AIChatWidget() {
   const [open,         setOpen]         = useState(false);
   const [messages,     setMessages]     = useState([]);
   const [context,      setContext]       = useState(null);
-  const [memory,       setMemory]        = useState([]);   // improvement #3: fake memory
+  const [memory,       setMemory]        = useState([]);
   const [input,        setInput]         = useState('');
   const [loading,      setLoading]       = useState(false);
   const [loadingStage, setLoadingStage]  = useState('');
@@ -638,13 +669,17 @@ export default function AIChatWidget() {
   const inputRef  = useRef(null);
   const timers    = useRef([]);
 
-  useEffect(() => () => timers.current.forEach(clearTimeout), []);
-
-  const addTimer = (fn, delay) => {
-    const id = setTimeout(fn, delay);
+  // FIX: prune completed timer IDs to prevent memory leak on long sessions
+  const addTimer = useCallback((fn, delay) => {
+    const id = setTimeout(() => {
+      fn();
+      timers.current = timers.current.filter(t => t !== id);
+    }, delay);
     timers.current.push(id);
     return id;
-  };
+  }, []);
+
+  useEffect(() => () => timers.current.forEach(clearTimeout), []);
 
   useEffect(() => {
     bottomRef.current?.scrollIntoView({ behavior: 'smooth' });
@@ -654,7 +689,7 @@ export default function AIChatWidget() {
     if (!loading && open && bootDone) {
       addTimer(() => inputRef.current?.focus(), 50);
     }
-  }, [loading, open, bootDone]);
+  }, [loading, open, bootDone, addTimer]);
 
   useEffect(() => {
     if (open && !bootDone) {
@@ -668,9 +703,8 @@ export default function AIChatWidget() {
     if (open && bootDone) {
       addTimer(() => inputRef.current?.focus(), 150);
     }
-  }, [open, bootDone]);
+  }, [open, bootDone, addTimer]);
 
-  /* Mark a message as animated-done so typewriter won't retrigger */
   const markAnimated = useCallback((idx) => {
     setMessages(prev => prev.map((m, i) =>
       i === idx ? { ...m, animated: true } : m
@@ -685,33 +719,40 @@ export default function AIChatWidget() {
     setMessages(prev => [...prev, { role: 'user', content: userText }]);
     setLoading(true);
 
-    // Improvement #2: staged thinking messages
-    const { text: responseText, suggestions, newContext, newMemory } =
-      getResponse(userText, context, memory);
+    // FIX: capture context/memory in local vars to avoid stale closure issues
+    setContext(currentContext => {
+      setMemory(currentMemory => {
+        const { text: responseText, suggestions, newContext, newMemory } =
+          getResponse(userText, currentContext, currentMemory);
 
-    const stages = getThinkingStages(newContext);
-    stages.forEach((stage, i) => {
-      addTimer(() => setLoadingStage(stage), i * 360);
+        const stages = getThinkingStages(newContext);
+        stages.forEach((stage, i) => {
+          addTimer(() => setLoadingStage(stage), i * 360);
+        });
+
+        const delay = getTypingDelay(responseText);
+
+        addTimer(() => {
+          setMessages(prev => [
+            ...prev,
+            {
+              role: 'assistant',
+              content: responseText,
+              suggestions: suggestions || [],
+              animated: false,
+            },
+          ]);
+          setContext(newContext);
+          setMemory(newMemory);
+          setLoading(false);
+          setLoadingStage('');
+        }, delay);
+
+        return currentMemory; // keep memory unchanged until timer fires
+      });
+      return currentContext; // keep context unchanged until timer fires
     });
-
-    const delay = getTypingDelay(responseText);
-
-    addTimer(() => {
-      setMessages(prev => [
-        ...prev,
-        {
-          role: 'assistant',
-          content: responseText,
-          suggestions: suggestions || [],
-          animated: false,   // improvement #1: track per-message animation state
-        },
-      ]);
-      setContext(newContext);
-      setMemory(newMemory);
-      setLoading(false);
-      setLoadingStage('');
-    }, delay);
-  }, [input, loading, booting, context, memory]);
+  }, [input, loading, booting, addTimer]);
 
   const handleKey = (e) => {
     if (e.key === 'Enter' && !e.shiftKey) {
@@ -795,13 +836,11 @@ export default function AIChatWidget() {
                 )}
                 {m.role === 'assistant' ? (
                   <div>
-                    {/* Improvement #1: animate={!m.animated} — stable typewriter */}
                     <TypewriterBubble
                       content={m.content}
                       animate={!m.animated}
                       onDone={() => markAnimated(i)}
                     />
-
                     {m.suggestions?.length > 0 && (
                       <>
                         <p className="ai-recommend-label">
@@ -833,7 +872,6 @@ export default function AIChatWidget() {
                   <BsFillLightningChargeFill size={11} />
                 </div>
                 <div className="ai-thinking">
-                  {/* Improvement #2: cycling stage labels */}
                   <span className="ai-thinking-label">
                     {loadingStage || '⚡ Processing...'}
                   </span>
