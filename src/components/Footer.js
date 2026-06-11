@@ -16,7 +16,7 @@ export default function Footer() {
         <div className="footer-left">
           <span className="footer-name">Shreya S N <BsLightningCharge size={16} color="#d892e1" style={{ display: 'inline', verticalAlign: 'middle' }} /> </span>
           <p className="footer-tagline">
-            Built with curiosity, caffeine, and code <GiLightningBow size={16} color="var(--purple)" style={{ display: 'inline', verticalAlign: 'middle' }} />
+            Running on caffeine, hope and questionable decisions... <GiLightningBow size={16} color="var(--purple)" style={{ display: 'inline', verticalAlign: 'middle' }} />
           </p>
         </div>
 

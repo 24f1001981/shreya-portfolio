@@ -119,7 +119,7 @@ const projects = [
       'Adaptive gain ~30–60% improvement in time-averaged spectral efficiency over fixed BPSK in a 0–20 dB mobile channel scenario',
     ],
     tags: ['MATLAB App Designer', 'BPSK-QPSK', 'AWGN & Rayleigh Fading', 'Gray Coding', 'Adaptive Modulation'],
-    accent: 'purple',
+    accent: 'cyan',
     emoji: <GiSatelliteCommunication />,
     status: 'Commn (Simulation)',
     screenshots: [
@@ -129,11 +129,10 @@ const projects = [
       '/images/adaptive/4.png',
     ],
     links: {
-      // FIX: was pointing to RecruitEase github/sparkwhiz — replace with correct URLs when available
       demo: '',
       linkedin: '',
-      github: 'https://github.com/24f1001981/Adaptive-Wireless-Communication-System', // ← update if different
-      sparkwhiz: '', // ← add your actual SparkWhiz link
+      github: 'https://github.com/24f1001981/Adaptive_Wireless_Communication', 
+      sparkwhiz: 'https://sites.google.com/view/sparkwhiz/connectverse/adaptive-wireless-communication-simulator?authuser=0', 
     },
   },
 ];
