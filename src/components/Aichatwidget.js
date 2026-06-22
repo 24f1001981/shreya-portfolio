@@ -107,33 +107,33 @@ const KEYWORD_MAP = [
   },
   {
     topic: 'projects',
-    exact:   ['project', 'projects', 'built', 'build', 'builds', 'soil', 'doctor', 'recruitease', 'recruit', 'circuitguard', 'circuit', 'made', 'created', 'developed'],
-    partial: ['make', 'create', 'develop', 'work on', 'what has she', 'show me her work', 'her work', 'what did she', 'any cool', 'things she', 'list her', 'her builds', 'she built', 'she made', 'she created', 'she developed'],
+    exact:   ['project', 'projects', 'built', 'build', 'soil', 'doctor', 'recruitease', 'recruit', 'circuitguard', 'circuit'],
+    partial: ['make', 'create', 'develop', 'work on', 'what has she'],
   },
   {
     topic: 'skills',
-    exact:   ['skill', 'skills', 'stack', 'tech', 'technology', 'expertise', 'framework', 'frameworks', 'python', 'javascript', 'react', 'flask', 'verilog', 'java', 'embedded', 'coding', 'code', 'programme', 'programming', 'tools', 'web', 'hardware', 'software'],
-    partial: ['language', 'tool', 'know how to', 'speciali', 'what can she', 'does she know', 'can she do', 'machine learning', 'good at', 'is she good', 'web dev', 'full stack', 'fullstack'],
+    exact:   ['skill', 'skills', 'stack', 'tech', 'technology', 'expertise', 'framework'],
+    partial: ['language', 'tool', 'know', 'use', 'speciali', 'what can she'],
   },
   {
     topic: 'education',
-    exact:   ['education', 'degree', 'college', 'university', 'iit', 'iitm', 'gec', 'cgpa', 'btech', 'b.tech', 'study', 'studied', 'marks', 'score', 'grades', 'qualification'],
-    partial: ['where did she study', 'academic', 'school', 'where she went', 'which college', 'where she studied', 'go to college'],
+    exact:   ['education', 'degree', 'college', 'university', 'iit', 'iitm', 'gec', 'cgpa', 'btech', 'b.tech'],
+    partial: ['study', 'grade', 'data science', 'academic', 'qualification', 'school'],
   },
   {
     topic: 'ieee',
     exact:   ['ieee', 'wie', 'wia', 'volunteer', 'volunteering', 'proposal', 'secretary', 'representative', 'aess'],
-    partial: ['leadership', 'community', 'lead', 'committee', 'organization', 'volunteer work', 'community work', 'extracurricular'],
+    partial: ['leadership', 'community', 'lead', 'committee', 'organization'],
   },
   {
     topic: 'contact',
     exact:   ['contact', 'email', 'linkedin', 'github', 'reach', 'connect', 'dm'],
-    partial: ['message', 'talk', 'find her', 'get in touch', 'hire her', 'how to hire', 'recruit her'],
+    partial: ['message', 'hire', 'talk', 'find her', 'get in touch'],
   },
   {
     topic: 'internship',
-    exact:   ['intern', 'internship', 'keltron', 'industry', 'experience'],
-    partial: ['job', 'work history', 'placement', 'has she worked', 'where has she worked', 'company', 'work experience', 'industry experience'],
+    exact:   ['intern', 'internship', 'keltron', 'industry'],
+    partial: ['job', 'experience', 'work history', 'placement'],
   },
   {
     topic: 'sparkwhiz',
@@ -148,7 +148,7 @@ const KEYWORD_MAP = [
   {
     topic: 'aerospace',
     exact:   ['aerospace', 'aviation', 'rocket', 'satellite'],
-    partial: ['space', 'flying', 'aircraft', 'into space', 'like space', 'like aerospace', 'space tech'],
+    partial: ['space', 'flying', 'aircraft'],
   },
   {
     topic: 'ncc',
@@ -162,8 +162,8 @@ const KEYWORD_MAP = [
   },
   {
     topic: 'about',
-    exact:   ['about', 'shreya', 'herself', 'achievements', 'accomplishments', 'background', 'passionate', 'motivates', 'motivation', 'describe', 'personality'],
-    partial: ['who is', 'who are', 'tell me about', 'person', 'introduce', 'what has she done', 'what did she do', 'what is she', 'what drives', 'passionate about'],
+    exact:   ['about', 'shreya', 'herself'],
+    partial: ['who is', 'who are', 'tell me', 'describe', 'person', 'background', 'introduce'],
   },
   {
     topic: 'easterEgg',
@@ -182,12 +182,12 @@ const KEYWORD_MAP = [
   },
   {
     topic: 'casual',
-    exact:   ['ok', 'okay', 'sure', 'hmm', 'hm', 'alright', 'thanks', 'thank', 'cool', 'noted', 'yeah', 'yep', 'yup', 'thx', 'ty', 'nice', 'great', 'awesome', 'helpful', 'interesting', 'wow', 'lol', 'haha'],
-    partial: ['got it', 'nice one', 'great job', 'well done', 'that was'],
+    exact:   ['ok', 'okay', 'sure', 'hmm', 'hm', 'alright', 'thanks', 'thank', 'cool', 'noted', 'yeah', 'yep', 'yup', 'thx', 'ty'],
+    partial: ['got it', 'nice one', 'great', 'awesome', 'fine'],
   },
   {
     topic: 'hello',
-    exact:   ['hi', 'hello', 'hey', 'howdy', 'sup', 'yo', 'hii', 'heyy', 'helo', 'hiya'],
+    exact:   ['hi', 'hello', 'hey', 'howdy', 'sup', 'yo', 'hii', 'heyy'],
     partial: ['good morning', 'good evening', 'good afternoon'],
   },
 ];
@@ -477,7 +477,7 @@ function getContinuityLine(previousContext, currentTopic) {
 
 /* ── Weighted scorer ── */
 function getBestTopic(lower) {
-  const words = lower.trim().replace(/[?!.,;:'"]/g, '').split(/\s+/);
+  const words = lower.trim().split(/\s+/);
   let bestTopic = null;
   let bestScore = 0;
 
@@ -492,7 +492,7 @@ function getBestTopic(lower) {
       }
     }
     for (const key of partial) {
-      if (lower.includes(key)) score += 2;
+      if (lower.includes(key)) score += 1;
     }
     if (score > bestScore) {
       bestScore = score;
@@ -608,7 +608,8 @@ function getResponse(input, context, memory) {
   };
 }
 
-/* ── Typewriter hook*/
+/* ── Typewriter hook
+   FIX: added `animate` to dependency array so it re-runs if animate flag changes ── */
 function useTypewriter(text, animate, speed = 14, onDone) {
   const [displayed, setDisplayed] = useState(animate ? '' : text);
   const onDoneRef = useRef(onDone);
