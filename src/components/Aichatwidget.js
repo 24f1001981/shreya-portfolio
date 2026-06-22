@@ -499,7 +499,7 @@ function getBestTopic(lower) {
       bestTopic = topic;
     }
   }
-  return bestScore >= 2 ? bestTopic : null;
+  return bestScore >= 3 ? bestTopic : null;
 }
 
 /* ── Extract memory interest from input ── */
@@ -572,7 +572,7 @@ function getResponse(input, context, memory) {
   if (context && KB[context]) {
     const followupKeys = CONTEXT_FOLLOWUP[context] || [];
     const wordCount = lower.split(/\s+/).length;
-    const isVague = wordCount <= 4;
+    const isVague = wordCount <= 2;
     const hasFollowupKey = followupKeys.some(k => lower.includes(k));
     const noNewTopic = !bestTopic;
 
